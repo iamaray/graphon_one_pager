@@ -2,7 +2,7 @@
 
 :root,
 :root[data-theme="light"] {
-  --background: #fbfaf8;
+  --background: #f1f1f1;
   --foreground: #1d1b18;
   --surface: #ffffff;
   --surface-muted: #f5f2ed;

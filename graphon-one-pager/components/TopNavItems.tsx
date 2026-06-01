@@ -4,15 +4,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { href: "/", label: "HOME" },
-  { href: "/blog", label: "BLOG" },
+  { href: "/", label: "ABOUT" },
+  { href: "1", label: "SELLERS" },
+  { href: "2", label: "BUYERS" },
+  { href: "3", label: "GET STARTED" },
 ];
 
 export default function TopNav() {
   const pathname = usePathname();
 
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-5 items-center justify-center">
       {navItems.map((item) => {
         const isActive = pathname == item.href;
 
