@@ -14,10 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background">
-      <body>
+      <body className="min-h-screen bg-background text-foreground antialiased">
         <TopNavBar />
-        <main className="mx-auto flex max-w-4xl flex-col ">
-          <div>{children}</div>
+        <main className="flex w-full flex-col">
+          {children}
         </main>
       </body>
     </html>

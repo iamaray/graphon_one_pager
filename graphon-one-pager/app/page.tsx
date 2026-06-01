@@ -1,14 +1,31 @@
 import TopCard from "@/components/TopCard";
 import InfoCard from "@/components/InfoCard";
-
+import InfoCardRowLayout from "@/components/InfoCardRowLayout";
 import { FaGithub } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <section className="">
+    <section>
       <TopCard />
+      <InfoCardRowLayout>
+        <InfoCard
+          Icon={FaGithub}
+          header="hello"
+          body="hafhadaffshafhadaffshafhadaffshafhadaffs"
+        />
+        <InfoCard
+          Icon={FaGithub}
+          header="hello"
+          body="hafhadaffshafhadaffshafhadaffshafhadaffs"
+        />
+        <InfoCard
+          Icon={FaGithub}
+          header="hello"
+          body="hafhadaffshafhadaffshafhadaffshafhadaffshafhadaffshafhadaffshafhadaffshafhadaffs"
+        />
+      </InfoCardRowLayout>
 
-      <div className="flex gap-6 w-full bg-red-400 items-center justify-center">
+      <InfoCardRowLayout>
         <InfoCard
           Icon={FaGithub}
           header="hello"
@@ -24,7 +41,7 @@ export default function Home() {
           header="hello"
           body="hafhadaffshafhadaffshafhadaffshafhadaffs"
         />
-      </div>
+      </InfoCardRowLayout>
     </section>
   );
 }
