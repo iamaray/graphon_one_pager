@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <body className="min-h-screen bg-background text-foreground antialiased">
         <TopNavBar />
-        <main className="flex w-full flex-col">
+        <main className="flex w-full flex-col bg-background pt-[var(--top-nav-height)]">
           {children}
         </main>
       </body>

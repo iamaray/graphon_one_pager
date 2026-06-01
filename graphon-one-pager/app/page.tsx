@@ -1,45 +1,103 @@
 import TopCard from "@/components/TopCard";
-import InfoCard from "@/components/InfoCard";
+import InfoCard, { type ExpandedInfoCardRow } from "@/components/InfoCard";
 import InfoCardRowLayout from "@/components/InfoCardRowLayout";
-import { FaGithub } from "react-icons/fa";
+import AudienceHeader from "@/components/AudienceHeader";
+import { FaShield } from "react-icons/fa6";
+import { MdStorage, MdScience } from "react-icons/md";
+import { PiGraphFill } from "react-icons/pi";
+import { TbContract } from "react-icons/tb";
+import { FaMessage } from "react-icons/fa6";
+
+function PlaceholderDemo({ label }: { label: string }) {
+  return (
+    <div className="rounded-lg border border-border bg-surface-muted p-4">
+      <div className="mb-5 flex items-center justify-between gap-4">
+        <p className="text-xs font-semibold uppercase tracking-wide text-foreground">
+          {label}
+        </p>
+        <div className="h-2 w-10 rounded-full bg-foreground/30" />
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <div className="col-span-3 space-y-3">
+          <div className="h-3 rounded-full bg-foreground/80" />
+          <div className="h-3 w-4/5 rounded-full bg-foreground/40" />
+          <div className="h-3 w-2/3 rounded-full bg-foreground/30" />
+        </div>
+        <div className="rounded-md border border-border bg-surface p-3">
+          <div className="mx-auto h-10 w-10 rounded-full border border-foreground/30" />
+        </div>
+      </div>
+      <div className="mt-5 grid grid-cols-3 gap-3">
+        <div className="h-16 rounded-md bg-surface" />
+        <div className="h-16 rounded-md bg-surface" />
+        <div className="h-16 rounded-md bg-surface" />
+      </div>
+    </div>
+  );
+}
+
+function placeholderRows(topic: string): ExpandedInfoCardRow[] {
+  return [
+    {
+      demo: <PlaceholderDemo label={`${topic} setup`} />,
+      description: `Placeholder demo area for the first ${topic.toLowerCase()} workflow. This will be replaced with an interactive product mockup and the supporting explanation.`,
+    },
+    {
+      demo: <PlaceholderDemo label={`${topic} review`} />,
+      description: `Placeholder demo area for reviewing and adjusting the ${topic.toLowerCase()} experience before committing to an action.`,
+    },
+    {
+      demo: <PlaceholderDemo label={`${topic} result`} />,
+      description: `Placeholder demo area for the final ${topic.toLowerCase()} outcome, paired with concise explanatory text on the right.`,
+    },
+  ];
+}
 
 export default function Home() {
   return (
     <section>
       <TopCard />
+      <AudienceHeader action="PRODUCE" />
       <InfoCardRowLayout>
         <InfoCard
-          Icon={FaGithub}
-          header="hello"
-          body="hafhadaffshafhadaffshafhadaffshafhadaffs"
+          Icon={FaShield}
+          header="Granular Permissions"
+          body="
+            • Enforce access rights. Control access to your data by tuning parameters that set read limits, column encryption, and expiration dates. • Protect your data. Require data-to-compute cleanrooms or allow for full export of your data."
+          expandedRows={placeholderRows("Granular permissions")}
         />
         <InfoCard
-          Icon={FaGithub}
-          header="hello"
-          body="hafhadaffshafhadaffshafhadaffshafhadaffs"
+          Icon={MdStorage}
+          header="Flexible Storage"
+          body="• Already have a storage solution? Hook into your existing cloud provider. • Unstructured, dispersed data? Your data is valuable. Let us structure your data into a storage solution that works for you."
+          expandedRows={placeholderRows("Flexible storage")}
         />
         <InfoCard
-          Icon={FaGithub}
-          header="hello"
-          body="hafhadaffshafhadaffshafhadaffshafhadaffshafhadaffshafhadaffshafhadaffshafhadaffs"
+          Icon={PiGraphFill}
+          header="Peer-to-Peer Marketplace"
+          body="• Get connected with buyers. Let us match the datasets you produce with data consumers who need it. • Monitor the transaction. Monitor the transaction every step of the way, from key purchase to every read operation."
+          expandedRows={placeholderRows("Peer-to-peer marketplace")}
         />
       </InfoCardRowLayout>
-
+      <AudienceHeader action="CONSUME" />
       <InfoCardRowLayout>
         <InfoCard
-          Icon={FaGithub}
+          Icon={MdScience}
           header="hello"
           body="hafhadaffshafhadaffshafhadaffshafhadaffs"
+          expandedRows={placeholderRows("Science data discovery")}
         />
         <InfoCard
-          Icon={FaGithub}
+          Icon={TbContract}
           header="hello"
           body="hafhadaffshafhadaffshafhadaffshafhadaffs"
+          expandedRows={placeholderRows("Contract review")}
         />
         <InfoCard
-          Icon={FaGithub}
+          Icon={FaMessage}
           header="hello"
           body="hafhadaffshafhadaffshafhadaffshafhadaffs"
+          expandedRows={placeholderRows("Buyer collaboration")}
         />
       </InfoCardRowLayout>
     </section>

@@ -2,6 +2,7 @@
 
 :root,
 :root[data-theme="light"] {
+  --top-nav-height: 8.75rem;
   --background: #f4f4f5;
   --foreground: #111111;
   --surface: #ffffff;
@@ -11,6 +12,12 @@
   --accent: #111111;
   --accent-foreground: #ffffff;
   --focus-ring: #737373;
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --top-nav-height: 3.75rem;
+  }
 }
 
 @theme inline {
@@ -62,6 +69,10 @@
   --focus-ring: #a3a3a3;
 }
 
+html {
+  background: var(--background);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -69,4 +80,24 @@ body {
   transition:
     background-color 200ms ease,
     color 200ms ease;
+}
+
+.info-card > summary {
+  list-style: none;
+}
+
+.info-card > summary::-webkit-details-marker {
+  display: none;
+}
+
+.info-card[open] {
+  grid-column: 1 / -1;
+}
+
+.info-card[open] .info-card-chevron {
+  transform: rotate(90deg);
+}
+
+.info-card-row:has(.info-card[open]) .info-card:not([open]) {
+  display: none;
 }
