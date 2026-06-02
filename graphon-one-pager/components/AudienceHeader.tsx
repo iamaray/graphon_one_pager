@@ -11,7 +11,7 @@ export default function AudienceHeader({
         <span className="text-foreground underline decoration-border decoration-2 underline-offset-4">
           {action}
         </span>{" "}
-        frontier science data?
+        scientific data?
       </h1>
       <div className="h-px flex-1 bg-border" />
     </div>

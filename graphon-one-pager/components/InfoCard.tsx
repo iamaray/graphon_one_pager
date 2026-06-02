@@ -9,7 +9,7 @@ export type ExpandedInfoCardRow = {
 
 type ExternalLinkItemProps = {
   header: string;
-  body: string;
+  body: string[];
   Icon: IconType;
   expandedRows?: ExpandedInfoCardRow[];
 };
@@ -72,24 +72,23 @@ function renderPhraseMatches(text: string) {
   return content;
 }
 
-function InfoCardBody({ body }: { body: string }) {
+function InfoCardBody({ body }: { body: string[] }) {
   const bodyItems = body
-    .split("•")
     .map((item) => item.trim())
     .filter(Boolean);
 
   if (bodyItems.length <= 1) {
     return (
       <p className="mt-4 break-words text-sm leading-6 text-text-muted">
-        {renderEmphasizedText(body)}
+        {renderEmphasizedText(bodyItems[0] ?? "")}
       </p>
     );
   }
 
   return (
     <ul className="mt-4 list-disc space-y-4 pl-5 text-sm leading-6 text-text-muted">
-      {bodyItems.map((item) => (
-        <li key={item} className="break-words">
+      {bodyItems.map((item, index) => (
+        <li key={`${item}-${index}`} className="break-words">
           {renderEmphasizedText(item)}
         </li>
       ))}

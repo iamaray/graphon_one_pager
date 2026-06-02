@@ -62,20 +62,28 @@ export default function Home() {
         <InfoCard
           Icon={FaShield}
           header="Granular Permissions"
-          body="
-            • Enforce access rights. Control access to your data by tuning parameters that set read limits, column encryption, and expiration dates. • Protect your data. Require data-to-compute cleanrooms or allow for full export of your data."
+          body={[
+            "Enforce access rights. Control access to your data by tuning parameters that set read limits, column encryption, and expiration dates.",
+            "Protect your data. Require data-to-compute cleanrooms or allow for full export of your data.",
+          ]}
           expandedRows={placeholderRows("Granular permissions")}
         />
         <InfoCard
           Icon={MdStorage}
           header="Flexible Storage"
-          body="• Already have a storage solution? Hook into your existing cloud provider. • Unstructured, dispersed data? Your data is valuable. Let us structure your data into a storage solution that works for you."
+          body={[
+            "Already have a storage solution? Hook into your existing cloud provider.",
+            "Unstructured, dispersed data? Your data is valuable. Let us structure your data into a storage solution that works for you.",
+          ]}
           expandedRows={placeholderRows("Flexible storage")}
         />
         <InfoCard
           Icon={PiGraphFill}
           header="Peer-to-Peer Marketplace"
-          body="• Get connected with buyers. Let us match the datasets you produce with data consumers who need it. • Monitor the transaction. Monitor the transaction every step of the way, from key purchase to every read operation."
+          body={[
+            "Get connected with buyers. Let us match the datasets you produce with data consumers who need it.",
+            "Monitor the transaction. Monitor the transaction every step of the way, from key purchase to every read operation.",
+          ]}
           expandedRows={placeholderRows("Peer-to-peer marketplace")}
         />
       </InfoCardRowLayout>
@@ -83,20 +91,29 @@ export default function Home() {
       <InfoCardRowLayout>
         <InfoCard
           Icon={MdScience}
-          header="hello"
-          body="hafhadaffshafhadaffshafhadaffshafhadaffs"
+          header="Specialized Scientific Data"
+          body={[
+            "Find differentiated datasets. Access high-quality experimental data difficult to source through public repos.",
+            "Evaluate before you buy. Review metadata, acces terms, and quality indicators.",
+          ]}
           expandedRows={placeholderRows("Science data discovery")}
         />
         <InfoCard
           Icon={TbContract}
-          header="hello"
-          body="hafhadaffshafhadaffshafhadaffshafhadaffs"
+          header="Transparent Access Terms"
+          body={[
+            "Know exactly what you're getting. See usage rights, read limits, and export & compute restictinos up front.",
+            "Choose the right access model. Purchase access under terms that fit your use case.",
+          ]}
           expandedRows={placeholderRows("Contract review")}
         />
         <InfoCard
           Icon={FaMessage}
-          header="hello"
-          body="hafhadaffshafhadaffshafhadaffshafhadaffs"
+          header="Direct Seller Discovery"
+          body={[
+            "Connect with data producers. Submit bids to purchase data usage rights from labs and scientific institutions producing frontier data.",
+            "Source data more efficiently. Spend less time hunting fro data through fragmented channels and more time building.",
+          ]}
           expandedRows={placeholderRows("Buyer collaboration")}
         />
       </InfoCardRowLayout>

@@ -7,9 +7,13 @@ export default function TopCard() {
             {/* Connecting Compute and Frontier Science */}
             Compute Meets Frontier Science Data
           </h1>
+          <p className="font-bold">
+            We&apos;re bridging the divide between supply and demand on frontier
+            data.
+          </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-text-muted sm:text-lg">
-            A marketplace connecting researchers and engineers building
-            state-of-the-art models with high-quality research data.
+            A marketplace where science labs can sell data access rights to
+            data-driven firms training cutting-ege models.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-start gap-3">
             <p className="rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm">
@@ -23,10 +27,7 @@ export default function TopCard() {
         <div
           className="min-h-64 rounded-lg bg-foreground p-6 shadow-sm"
           aria-hidden="true"
-        >
-          <div className="flex h-full min-h-52 flex-col justify-between">
-          </div>
-        </div>
+        ></div>
       </div>
     </div>
   );
