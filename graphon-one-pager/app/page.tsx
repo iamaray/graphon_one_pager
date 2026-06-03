@@ -63,8 +63,8 @@ export default function Home() {
           Icon={FaShield}
           header="Granular Permissions"
           body={[
-            "Enforce access rights. Control access to your data by tuning parameters that set read limits, column encryption, and expiration dates.",
-            "Protect your data. Require data-to-compute cleanrooms or allow for full export of your data.",
+            "Enforce access rights. You sell keys that confer usage rights on your data. Keys all you to programmatically control access to your data by tuning parameters that define read limits, column encryption, and expiration dates.",
+            "Protect your data. We let you take control over export permissions. Require data-to-compute cleanrooms, and directly monetize compute. Alternatively, allow for full export of your data.",
           ]}
           expandedRows={placeholderRows("Granular permissions")}
         />
@@ -73,7 +73,7 @@ export default function Home() {
           header="Flexible Storage"
           body={[
             "Already have a storage solution? Hook into your existing cloud provider.",
-            "Unstructured, dispersed data? Your data is valuable. Let us structure your data into a storage solution that works for you.",
+            "Unstructured, dispersed data? Your data are valuable. Let us structure your data into a storage solution that works for you.",
           ]}
           expandedRows={placeholderRows("Flexible storage")}
         />
@@ -81,8 +81,8 @@ export default function Home() {
           Icon={PiGraphFill}
           header="Peer-to-Peer Marketplace"
           body={[
-            "Get connected with buyers. Let us match the datasets you produce with data consumers who need it.",
-            "Monitor the transaction. Monitor the transaction every step of the way, from key purchase to every read operation.",
+            "Monetize access. Let us match the datasets you produce with data consumers who need it.",
+            "Monetize (and monitor) usage. Monitor the transaction every step of the way, from key purchase to every read operation.",
           ]}
           expandedRows={placeholderRows("Peer-to-peer marketplace")}
         />
