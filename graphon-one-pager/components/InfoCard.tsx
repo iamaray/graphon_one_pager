@@ -9,90 +9,16 @@ export type ExpandedInfoCardRow = {
 
 type ExternalLinkItemProps = {
   header: string;
-  body: string[];
+  body: ReactNode;
   Icon: IconType;
   expandedRows?: ExpandedInfoCardRow[];
 };
 
-const emphasizedPhrases = ["_______"];
-
-function renderEmphasizedText(text: string) {
-  const match = text.match(/^(.+?[.?])(\s+|$)(.*)$/);
-
-  if (!match) {
-    return renderPhraseMatches(text);
-  }
-
-  const [, leadText, separator, restText] = match;
-
-  return [
-    <strong key="lead" className="font-semibold text-foreground">
-      {leadText}
-    </strong>,
-    separator,
-    ...renderPhraseMatches(restText),
-  ];
-}
-
-function renderPhraseMatches(text: string) {
-  const content: ReactNode[] = [];
-  let remainingText = text;
-  let key = 0;
-
-  while (remainingText) {
-    const nextMatch = emphasizedPhrases
-      .map((phrase) => ({
-        index: remainingText.indexOf(phrase),
-        phrase,
-      }))
-      .filter((match) => match.index >= 0)
-      .sort((a, b) => a.index - b.index)[0];
-
-    if (!nextMatch) {
-      content.push(remainingText);
-      break;
-    }
-
-    if (nextMatch.index > 0) {
-      content.push(remainingText.slice(0, nextMatch.index));
-    }
-
-    content.push(
-      <strong key={key} className="font-semibold text-foreground">
-        {nextMatch.phrase}
-      </strong>,
-    );
-
-    remainingText = remainingText.slice(
-      nextMatch.index + nextMatch.phrase.length,
-    );
-    key += 1;
-  }
-
-  return content;
-}
-
-function InfoCardBody({ body }: { body: string[] }) {
-  const bodyItems = body
-    .map((item) => item.trim())
-    .filter(Boolean);
-
-  if (bodyItems.length <= 1) {
-    return (
-      <p className="mt-4 break-words text-sm leading-6 text-text-muted">
-        {renderEmphasizedText(bodyItems[0] ?? "")}
-      </p>
-    );
-  }
-
+function InfoCardBody({ body }: { body: ReactNode }) {
   return (
-    <ul className="mt-4 list-disc space-y-4 pl-5 text-sm leading-6 text-text-muted">
-      {bodyItems.map((item, index) => (
-        <li key={`${item}-${index}`} className="break-words">
-          {renderEmphasizedText(item)}
-        </li>
-      ))}
-    </ul>
+    <div className="mt-4 space-y-4 break-words text-sm leading-6 text-text-muted [&_strong]:font-semibold [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:space-y-4 [&_ul]:pl-5">
+      {body}
+    </div>
   );
 }
 

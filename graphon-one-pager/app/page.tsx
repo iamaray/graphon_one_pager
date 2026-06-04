@@ -83,28 +83,59 @@ export default function Home() {
         <InfoCard
           Icon={MdStorage}
           header="Structure and Store"
-          body={[
-            "Already have a storage solution? Hook into your existing cloud provider.",
-            "Unstructured, dispersed data? Your data are valuable. Let us help you structure a storage solution that works for you.",
-          ]}
+          body={
+            <ul>
+              <li>
+                <strong>Already have a storage solution?</strong> Hook into
+                your existing cloud provider.
+              </li>
+              <li>
+                <strong>Unstructured, dispersed data?</strong> Your data are
+                valuable. Let us help you structure a storage solution that
+                works for you.
+              </li>
+            </ul>
+          }
           expandedRows={placeholderRows("Flexible storage")}
         />
         <InfoCard
           Icon={FaShield}
           header="Configure Granular Permissions"
-          body={[
-            "Enforce access rights. You sell keys that enforce custom usage rights on your data. Keys all you to programmatically control access to your data by tuning parameters that define read limits, column encryption, and expiration dates.",
-            "Protect your data. We let you take control over export permissions. Require data-to-compute cleanrooms, and directly monetize compute. Alternatively, allow for full export of your data.",
-          ]}
+          body={
+            <ul>
+              <li>
+                <strong>Enforce access rights.</strong> You sell keys that
+                enforce custom usage rights on your data. Keys all you to
+                programmatically control access to your data by tuning
+                parameters that define read limits, column encryption, and
+                expiration dates.
+              </li>
+              <li>
+                <strong>Protect your data.</strong> We let you take control
+                over export permissions. Require data-to-compute cleanrooms, and
+                directly monetize compute. Alternatively, allow for full export
+                of your data.
+              </li>
+            </ul>
+          }
           expandedRows={placeholderRows("Granular permissions")}
         />
         <InfoCard
           Icon={PiGraphFill}
           header="Monetize Access and Usage"
-          body={[
-            "Monetize access. Let us match the datasets you produce with data consumers who need it.",
-            "Monetize (and monitor) usage. Monitor the transaction every step of the way, from key purchase to every read operation.",
-          ]}
+          body={
+            <ul>
+              <li>
+                <strong>Monetize access.</strong> Let us match the datasets you
+                produce with data consumers who need it.
+              </li>
+              <li>
+                <strong>Monetize (and monitor) usage.</strong> Monitor the
+                transaction every step of the way, from key purchase to every
+                read operation.
+              </li>
+            </ul>
+          }
           expandedRows={placeholderRows("Peer-to-peer marketplace")}
         />
       </InfoCardRowLayout>
@@ -138,28 +169,56 @@ export default function Home() {
         <InfoCard
           Icon={MdScience}
           header="Specialized Scientific Data"
-          body={[
-            "Find differentiated datasets. Access high-quality experimental data difficult to source through public repos.",
-            "Evaluate before you buy. Review metadata, acces terms, and quality indicators.",
-          ]}
+          body={
+            <ul>
+              <li>
+                <strong>Find differentiated datasets.</strong> Access
+                high-quality experimental data difficult to source through
+                public repos.
+              </li>
+              <li>
+                <strong>Evaluate before you buy.</strong> Review metadata, acces
+                terms, and quality indicators.
+              </li>
+            </ul>
+          }
           expandedRows={placeholderRows("Science data discovery")}
         />
         <InfoCard
           Icon={TbContract}
           header="Transparent Access Terms"
-          body={[
-            "Know exactly what you're getting. See usage rights, read limits, and export & compute restictinos up front.",
-            "Choose the right access model. Purchase access under terms that fit your use case.",
-          ]}
+          body={
+            <ul>
+              <li>
+                <strong>Know exactly what you&apos;re getting.</strong> See
+                usage rights, read limits, and export & compute restictinos up
+                front.
+              </li>
+              <li>
+                <strong>Choose the right access model.</strong> Purchase access
+                under terms that fit your use case.
+              </li>
+            </ul>
+          }
           expandedRows={placeholderRows("Contract review")}
         />
         <InfoCard
           Icon={FaMessage}
           header="Direct Seller Discovery"
-          body={[
-            "Connect with data producers. Submit bids to purchase data usage rights from labs and scientific institutions producing frontier data.",
-            "Source data more efficiently. Spend less time hunting fro data through fragmented channels and more time building.",
-          ]}
+          body={
+            <ul>
+              <li>
+                <strong>Connect with data producers.</strong> Submit bids to
+                purchase data usage rights from labs and scientific institutions
+                producing frontier data.
+              </li>
+              <li>
+                <strong>Source data more efficiently.</strong> Spend less time
+                hunting fro data through fragmented channels and more time
+                building.
+              </li>
+            </ul>
+          }
           expandedRows={placeholderRows("Buyer collaboration")}
         />
       </InfoCardRowLayout>
