@@ -40,8 +40,9 @@ export default function TopCard() {
           Compute &lt;&gt; <TypedHeroWord />
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-7 text-text-muted sm:text-lg">
-          We&apos;re bridging the divide between supply and demand on frontier
-          science data. GraphonMarkets provides an exchange where experimental
+          The AI industry is data-constrained. We&apos;re solving this by
+          building the exchange and infrastructure layer on scientific data used
+          at scale. GraphonMarkets provides an exchange where experimental
           science labs can sell data usage rights to firms training cutting-ege
           models.
         </p>

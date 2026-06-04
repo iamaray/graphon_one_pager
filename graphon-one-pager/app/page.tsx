@@ -1,7 +1,9 @@
 import TopCard from "@/components/TopCard";
 import InfoCard, { type ExpandedInfoCardRow } from "@/components/InfoCard";
 import InfoCardRowLayout from "@/components/InfoCardRowLayout";
-import AudienceHeader from "@/components/AudienceHeader";
+import DelinUserTypeHeader from "@/components/DelinUserTypeHeader";
+import DelinAboutUsHeader from "@/components/DelinAboutUsHeader";
+
 import { FaShield } from "react-icons/fa6";
 import { MdStorage, MdScience } from "react-icons/md";
 import { PiGraphFill } from "react-icons/pi";
@@ -53,33 +55,52 @@ function placeholderRows(topic: string): ExpandedInfoCardRow[] {
   ];
 }
 
+function ForegroundBold({ body }: { body: string }) {
+  return <strong className="font-semibold text-foreground">{body}</strong>;
+}
+
 export default function Home() {
   return (
     <section>
       <TopCard />
-      <AudienceHeader action="PRODUCE" />
+
+      <DelinUserTypeHeader action="PRODUCE" />
+      <p className="mx-auto mt-6 max-w-3xl px-5 text-base leading-7 text-text-muted sm:text-lg sm:leading-8">
+        GraphonMarkets will let you, as a scientist,{" "}
+        <ForegroundBold body="fund your science with your science" />. You are
+        currently forced to concern yourself with obtaining grant funding and
+        with the commercial viability of your scientific work. But, what if
+        experimental scientific work is{" "}
+        <ForegroundBold body="inherently valuable" />, and becoming moreso? The
+        AI industry is built on the output of human intelligence, and it is
+        mathematically bound to being so. With the mass of publicly available
+        data (or, readily accessible data, more broadly) already consumed by
+        this industry, demand for <ForegroundBold body="frontier" /> data - that
+        is, data at the edge of human intelligence - is accelerating. Capture
+        the value in your data.
+      </p>
       <InfoCardRowLayout>
         <InfoCard
-          Icon={FaShield}
-          header="Granular Permissions"
+          Icon={MdStorage}
+          header="Structure and Store"
           body={[
-            "Enforce access rights. You sell keys that confer usage rights on your data. Keys all you to programmatically control access to your data by tuning parameters that define read limits, column encryption, and expiration dates.",
+            "Already have a storage solution? Hook into your existing cloud provider.",
+            "Unstructured, dispersed data? Your data are valuable. Let us help you structure a storage solution that works for you.",
+          ]}
+          expandedRows={placeholderRows("Flexible storage")}
+        />
+        <InfoCard
+          Icon={FaShield}
+          header="Configure Granular Permissions"
+          body={[
+            "Enforce access rights. You sell keys that enforce custom usage rights on your data. Keys all you to programmatically control access to your data by tuning parameters that define read limits, column encryption, and expiration dates.",
             "Protect your data. We let you take control over export permissions. Require data-to-compute cleanrooms, and directly monetize compute. Alternatively, allow for full export of your data.",
           ]}
           expandedRows={placeholderRows("Granular permissions")}
         />
         <InfoCard
-          Icon={MdStorage}
-          header="Flexible Storage"
-          body={[
-            "Already have a storage solution? Hook into your existing cloud provider.",
-            "Unstructured, dispersed data? Your data are valuable. Let us structure your data into a storage solution that works for you.",
-          ]}
-          expandedRows={placeholderRows("Flexible storage")}
-        />
-        <InfoCard
           Icon={PiGraphFill}
-          header="Peer-to-Peer Marketplace"
+          header="Monetize Access and Usage"
           body={[
             "Monetize access. Let us match the datasets you produce with data consumers who need it.",
             "Monetize (and monitor) usage. Monitor the transaction every step of the way, from key purchase to every read operation.",
@@ -87,7 +108,32 @@ export default function Home() {
           expandedRows={placeholderRows("Peer-to-peer marketplace")}
         />
       </InfoCardRowLayout>
-      <AudienceHeader action="CONSUME" />
+      <DelinUserTypeHeader action="CONSUME" />
+
+      <p className="mx-auto mt-6 max-w-3xl px-5 text-base leading-7 text-text-muted sm:text-lg sm:leading-8">
+        GraphonMarkets will give you, as an AI firm, or any other data-hungry
+        enterprise, access to scientific data that do not exist on the open web.
+        As you already know, much of the readily accessible data have already
+        been scraped and trained on. As such, AI performance scaling has slowed
+        considerably, and your competitive edge is built on{" "}
+        <ForegroundBold body="frontier data" />. In other words, the firms with
+        models at the next stratum of performance will be fueled by data that
+        are{" "}
+        <ForegroundBold
+          body="high-quality, technical, domain specific, and produced by the smartest humans at
+          a rapid clip"
+        />
+        . Such data are inherently much harder to come by; scientific data, in
+        particular, is{" "}
+        <ForegroundBold
+          body="fragmented across labs, buried in inconsistent formats,
+        and constrained by unclear access terms. "
+        />
+        GraphonMarkets incentivizes labs to bring datasets online and to produce
+        more of them. Find the data your models need to reach the next threshold
+        of performance.
+      </p>
+
       <InfoCardRowLayout>
         <InfoCard
           Icon={MdScience}

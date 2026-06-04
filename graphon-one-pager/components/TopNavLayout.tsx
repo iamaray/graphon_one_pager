@@ -11,7 +11,7 @@ export default function TopNavBar() {
           <p className="font-semibold tracking-wide text-foreground">
             GraphonMarkets
           </p>
-          <p className="text-xs text-text-muted">Science Data Exchange</p>
+          <p className="text-xs text-text-muted">The Science Data Exchange</p>
         </div>
         <TopNav />
         <ThemeToggle />
