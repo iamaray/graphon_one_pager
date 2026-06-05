@@ -14,7 +14,7 @@ export default function TopNavBar() {
           <p className="text-xs text-text-muted">The Science Data Exchange</p>
         </div>
         <TopNav />
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
     </nav>
   );

@@ -2,14 +2,14 @@ import TopCard from "@/components/TopCard";
 import InfoCard, { type ExpandedInfoCardRow } from "@/components/InfoCard";
 import InfoCardRowLayout from "@/components/InfoCardRowLayout";
 import DelinUserTypeHeader from "@/components/DelinUserTypeHeader";
-import DelinAboutUsHeader from "@/components/DelinAboutUsHeader";
+// import DelinAboutUsHeader from "@/components/DelinAboutUsHeader";
 
 import { BsGpuCard } from "react-icons/bs";
 import { FaShield } from "react-icons/fa6";
 import { MdStorage, MdScience } from "react-icons/md";
 import { PiGraphFill } from "react-icons/pi";
 import { TbContract } from "react-icons/tb";
-import { FaMessage } from "react-icons/fa6";
+// import { FaMessage } from "react-icons/fa6";
 
 function PlaceholderDemo({ label }: { label: string }) {
   return (

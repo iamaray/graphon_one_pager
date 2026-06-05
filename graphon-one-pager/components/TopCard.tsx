@@ -34,7 +34,7 @@ function TopCardButton({
 
 export default function TopCard() {
   return (
-    <section className="w-full px-5 py-12 shadow-sm sm:py-16">
+    <section className="w-full px-5 py-12 sm:py-16">
       <div className="mx-auto flex max-w-3xl flex-col">
         <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
           Compute &lt;&gt; <TypedHeroWord />
