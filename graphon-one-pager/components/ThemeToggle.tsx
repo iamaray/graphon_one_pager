@@ -5,52 +5,25 @@ import { FaMoon, FaSun } from "react-icons/fa";
 
 type Theme = "light" | "dark";
 
-function getSystemTheme(): Theme {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
-
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("light");
-  const [isReady, setIsReady] = useState(false);
   const isDark = theme === "dark";
 
   useEffect(() => {
-    const frame = window.requestAnimationFrame(() => {
-      const systemTheme = getSystemTheme();
-
-      setTheme(systemTheme);
-      setIsReady(true);
-      document.documentElement.dataset.theme = systemTheme;
-    });
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isReady) {
-      document.documentElement.dataset.theme = theme;
-    }
-  }, [isReady, theme]);
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
 
   function toggleTheme() {
-    const currentTheme = isReady ? theme : getSystemTheme();
-    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    const nextTheme = theme === "dark" ? "light" : "dark";
 
-    setIsReady(true);
     setTheme(nextTheme);
   }
 
   return (
     <button
       type="button"
-      aria-label={
-        isReady ? `Switch to ${isDark ? "light" : "dark"} mode` : "Toggle theme"
-      }
-      aria-pressed={isReady ? isDark : undefined}
+      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+      aria-pressed={isDark}
       onClick={toggleTheme}
       className="relative ml-auto inline-flex h-8 w-16 shrink-0 items-center rounded-full border border-border bg-surface-muted p-1 text-muted transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring/40"
     >
