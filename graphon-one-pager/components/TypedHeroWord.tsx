@@ -5,9 +5,13 @@ import { useEffect, useState } from "react";
 const HERO_WORDS = [
   "Genomics",
   "Immunology",
+  "Astronomy",
+  "Marine Biology",
   "Neuroscience",
   "Biochemistry",
+  "Geology",
   "Oncology",
+  "Particle Physics",
 ] as const;
 
 const TYPE_STEP_MS = 85;

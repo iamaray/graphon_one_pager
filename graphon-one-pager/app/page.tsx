@@ -4,6 +4,7 @@ import InfoCardRowLayout from "@/components/InfoCardRowLayout";
 import DelinUserTypeHeader from "@/components/DelinUserTypeHeader";
 import DelinAboutUsHeader from "@/components/DelinAboutUsHeader";
 
+import { BsGpuCard } from "react-icons/bs";
 import { FaShield } from "react-icons/fa6";
 import { MdStorage, MdScience } from "react-icons/md";
 import { PiGraphFill } from "react-icons/pi";
@@ -67,17 +68,14 @@ export default function Home() {
       <DelinUserTypeHeader action="PRODUCE" />
       <p className="mx-auto mt-6 max-w-3xl px-5 text-base leading-7 text-text-muted sm:text-lg sm:leading-8">
         GraphonMarkets will let you, as a scientist,{" "}
-        <ForegroundBold body="fund your science with your science" />. You are
-        currently forced to concern yourself with obtaining grant funding and
-        with the commercial viability of your scientific work. But, what if
-        experimental scientific work is{" "}
-        <ForegroundBold body="inherently valuable" />, and becoming moreso? The
-        AI industry is built on the output of human intelligence, and it is
-        mathematically bound to being so. With the mass of publicly available
-        data (or, readily accessible data, more broadly) already consumed by
-        this industry, demand for <ForegroundBold body="frontier" /> data - that
-        is, data at the edge of human intelligence - is accelerating. Capture
-        the value in your data.
+        <ForegroundBold body="fund your science with your science" />. We
+        believe that now, more than ever, experimental scientific work is{" "}
+        <ForegroundBold body="inherently commmercially valuable" />. The AI
+        industry is built on the output of human intelligence, and it is
+        mathematically bound to being so. With the mass of readily accessible
+        data largely consumed by this industry, demand for{" "}
+        <ForegroundBold body="frontier data " /> at the edge of human
+        intelligence is accelerating.
       </p>
       <InfoCardRowLayout>
         <InfoCard
@@ -86,13 +84,16 @@ export default function Home() {
           body={
             <ul>
               <li>
-                <strong>Already have a storage solution?</strong> Hook into
-                your existing cloud provider.
+                <strong>Already have a storage solution?</strong> Hook into your
+                existing cloud provider. Let us be the exchange layer that
+                empowers you to commercialize data access more effectively than
+                via any existing platform.
               </li>
               <li>
-                <strong>Unstructured, dispersed data?</strong> Your data are
-                valuable. Let us help you structure a storage solution that
-                works for you.
+                <strong>Unstructured, dispersed data? </strong> Your scientific
+                output is valuable, and we&apos;re building the infrastructure
+                layer that makes it usable at scale. Let us help you structure a
+                storage solution that works.
               </li>
             </ul>
           }
@@ -104,17 +105,16 @@ export default function Home() {
           body={
             <ul>
               <li>
-                <strong>Enforce access rights.</strong> You sell keys that
-                enforce custom usage rights on your data. Keys all you to
-                programmatically control access to your data by tuning
-                parameters that define read limits, column encryption, and
-                expiration dates.
+                <strong>Enforce access rights.</strong> You configure
+                &quot;access keys&quot; that enforce custom usage rights on your
+                data. Control access to your data by tuning read limits, column
+                encryption, and expiration dates.
               </li>
               <li>
-                <strong>Protect your data.</strong> We let you take control
-                over export permissions. Require data-to-compute cleanrooms, and
-                directly monetize compute. Alternatively, allow for full export
-                of your data.
+                <strong>Protect your data.</strong> Take control over export
+                permissions to keep your data in good hands. Require
+                data-to-compute cleanrooms, and directly monetize compute.
+                Alternatively, allow for full export of your data.
               </li>
             </ul>
           }
@@ -126,13 +126,15 @@ export default function Home() {
           body={
             <ul>
               <li>
-                <strong>Monetize access.</strong> Let us match the datasets you
-                produce with data consumers who need it.
+                <strong>Monetize access.</strong> The initial sale price of a
+                key monetizes the privilege to access your data. Sellers will be
+                able to bid on your keys, which will set the final sale price.
               </li>
               <li>
-                <strong>Monetize (and monitor) usage.</strong> Monitor the
-                transaction every step of the way, from key purchase to every
-                read operation.
+                <strong>Monetize (and monitor) usage.</strong> After you have
+                sold a key, collect recurring revenue based on usage. In
+                addition, monitor detailed usage statistics to see how buyers
+                are interacting with your data in real time.
               </li>
             </ul>
           }
@@ -142,43 +144,39 @@ export default function Home() {
       <DelinUserTypeHeader action="CONSUME" />
 
       <p className="mx-auto mt-6 max-w-3xl px-5 text-base leading-7 text-text-muted sm:text-lg sm:leading-8">
-        GraphonMarkets will give you, as an AI firm, or any other data-hungry
-        enterprise, access to scientific data that do not exist on the open web.
-        As you already know, much of the readily accessible data have already
-        been scraped and trained on. As such, AI performance scaling has slowed
-        considerably, and your competitive edge is built on{" "}
-        <ForegroundBold body="frontier data" />. In other words, the firms with
-        models at the next stratum of performance will be fueled by data that
-        are{" "}
-        <ForegroundBold
-          body="high-quality, technical, domain specific, and produced by the smartest humans at
-          a rapid clip"
-        />
-        . Such data are inherently much harder to come by; scientific data, in
-        particular, is{" "}
-        <ForegroundBold
-          body="fragmented across labs, buried in inconsistent formats,
-        and constrained by unclear access terms. "
-        />
-        GraphonMarkets incentivizes labs to bring datasets online and to produce
-        more of them. Find the data your models need to reach the next threshold
-        of performance.
+        GraphonMarkets will fix the data-constraint problem.{" "}
+        <ForegroundBold body="Frontier data" /> play a more prominent role in
+        your competitive edge than ever before, and we want to help you bring
+        your models to the next stratum of performance by giving you access to
+        scientific datasets that are <ForegroundBold body="high-quality" />,{" "}
+        <ForegroundBold body="clean" />,{" "}
+        <ForegroundBold body="domain specific" />, and{" "}
+        <ForegroundBold body="produced by the smartest humans" />. We know that
+        scientific datasets are <ForegroundBold body="fragmented across labs" />
+        ,
+        <ForegroundBold body=" buried in inconsistent formats" />, and
+        constrained by <ForegroundBold body=" unclear access terms" />, but
+        GraphonMarkets removes these barriers and incentivizes labs to bring
+        their output online.
       </p>
 
       <InfoCardRowLayout>
         <InfoCard
           Icon={MdScience}
-          header="Specialized Scientific Data"
+          header="Source Specialized Data"
           body={
             <ul>
               <li>
-                <strong>Find differentiated datasets.</strong> Access
-                high-quality experimental data difficult to source through
-                public repos.
+                <strong>Find differentiated datasets.</strong> Our platform
+                incentivizes labs to bring their data online. Access
+                high-quality, high-signal experimental data difficult or
+                impossible to source through public repos.
               </li>
               <li>
-                <strong>Evaluate before you buy.</strong> Review metadata, acces
-                terms, and quality indicators.
+                <strong>Evaluate before you buy. </strong> The datasets you
+                access through GraphonMarkets are usable at scale. Examine all
+                aspects of a dataset to make sure it&apos;s right for your
+                model. Review metadata, acces terms, and quality indicators.
               </li>
             </ul>
           }
@@ -186,36 +184,41 @@ export default function Home() {
         />
         <InfoCard
           Icon={TbContract}
-          header="Transparent Access Terms"
+          header="Find Suitable Access Terms"
           body={
             <ul>
               <li>
-                <strong>Know exactly what you&apos;re getting.</strong> See
-                usage rights, read limits, and export & compute restictinos up
-                front.
+                <strong>Know exactly what you&apos;re getting.</strong>{" "}
+                GraphonMarkets eliminates the barriers of compliance and
+                consent. See usage rights, read limits, and export & compute
+                restictions up front.
               </li>
               <li>
-                <strong>Choose the right access model.</strong> Purchase access
-                under terms that fit your use case.
+                <strong>Choose the right access model.</strong> Different labs
+                will sell access under different constraints. So, you have the
+                opportunity to purchase access under terms that fit your use
+                case.
               </li>
             </ul>
           }
           expandedRows={placeholderRows("Contract review")}
         />
+        {/* Fix this card to say something about how buyers can use their own compute or something */}
         <InfoCard
-          Icon={FaMessage}
-          header="Direct Seller Discovery"
+          Icon={BsGpuCard}
+          header="Bring Your Own Workflow"
           body={
             <ul>
               <li>
-                <strong>Connect with data producers.</strong> Submit bids to
-                purchase data usage rights from labs and scientific institutions
-                producing frontier data.
+                <strong>Don&apos;t sacrifice compute.</strong> Have your own
+                cluster? No problem. Execute your code next to data with
+                proprietary compute without friction.
               </li>
               <li>
-                <strong>Source data more efficiently.</strong> Spend less time
-                hunting fro data through fragmented channels and more time
-                building.
+                <strong>Integrate data more efficiently.</strong> Plug directly
+                into your workflow. Spend less time hunting for science data
+                through fragmented channels and more time building and training
+                your models.
               </li>
             </ul>
           }

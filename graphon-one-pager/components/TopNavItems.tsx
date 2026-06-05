@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 
 const navItems = [
   { href: "/", label: "ABOUT" },
-  { href: "1", label: "SELLERS" },
-  { href: "2", label: "BUYERS" },
-  { href: "3", label: "GET STARTED" },
+  { href: "1", label: "DATA PRODUCERS" },
+  { href: "2", label: "DATA CONSUMERS" },
+  { href: "3", label: "CONTACT US" },
 ];
 
 export default function TopNav() {

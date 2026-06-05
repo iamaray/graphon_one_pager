@@ -41,10 +41,11 @@ export default function TopCard() {
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-7 text-text-muted sm:text-lg">
           The AI industry is data-constrained. We&apos;re solving this by
-          building the exchange and infrastructure layer on scientific data used
-          at scale. GraphonMarkets provides an exchange where experimental
-          science labs can sell data usage rights to firms training cutting-ege
-          models.
+          building the exchange and infrastructure layer that makes frontier
+          scientific data usable at scale.
+          {/* GraphonMarkets provides a exchange where
+          experimental science labs can sell data usage rights to firms training
+          cutting-ege models. */}
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <TopCardButton variant="primary">List Your Data</TopCardButton>
