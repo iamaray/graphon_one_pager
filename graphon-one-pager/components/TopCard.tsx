@@ -1,17 +1,14 @@
-import type { ButtonHTMLAttributes } from "react";
-import { MdArrowForward } from "react-icons/md";
+import type { ReactNode } from "react";
+import { FaXTwitter } from "react-icons/fa6";
+import { MdArrowForward, MdEmail } from "react-icons/md";
 import TypedHeroWord from "./TypedHeroWord";
 
-type TopCardButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type TopCardButtonProps = {
+  children: ReactNode;
   variant: "primary" | "secondary";
 };
 
-function TopCardButton({
-  children,
-  className = "",
-  variant,
-  ...props
-}: TopCardButtonProps) {
+function TopCardButton({ children, variant }: TopCardButtonProps) {
   const variantClassName =
     variant === "primary"
       ? "bg-accent text-accent-foreground shadow-sm hover:bg-foreground/90"
@@ -20,8 +17,7 @@ function TopCardButton({
   return (
     <button
       type="button"
-      className={`group inline-flex h-11 w-40 items-center justify-center rounded-md px-5 text-sm font-semibold transition duration-150 active:translate-y-px active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring/40 ${variantClassName} ${className}`}
-      {...props}
+      className={`group inline-flex h-11 w-40 items-center justify-center rounded-md px-5 text-sm font-semibold transition duration-150 active:translate-y-px active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring/40 ${variantClassName}`}
     >
       <span>{children}</span>
       <MdArrowForward
@@ -34,7 +30,7 @@ function TopCardButton({
 
 export default function TopCard() {
   return (
-    <section className="w-full px-5 py-12 sm:py-16">
+    <section className="w-full px-5 pb-8 pt-12 sm:pb-10 sm:pt-16">
       <div className="mx-auto flex max-w-3xl flex-col">
         <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
           Compute &lt;&gt; <TypedHeroWord />
@@ -51,6 +47,28 @@ export default function TopCard() {
           <TopCardButton variant="primary">List Your Data</TopCardButton>
           <TopCardButton variant="secondary">Access Data</TopCardButton>
         </div>
+        <div
+          id="contact-us"
+          className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 text-base font-medium text-foreground"
+        >
+          <a
+            href="mailto:arya@graphonmarkets.com"
+            className="inline-flex items-center gap-3 transition-colors hover:text-text-muted"
+          >
+            <MdEmail className="h-6 w-6 shrink-0" aria-hidden="true" />
+            <span>arya@graphonmarkets.com</span>
+          </a>
+          <a
+            href="https://x.com/GraphonDataExch"
+            className="inline-flex items-center gap-3 transition-colors hover:text-text-muted"
+          >
+            <FaXTwitter className="h-6 w-6 shrink-0" aria-hidden="true" />
+            <span>GraphonDataExch</span>
+          </a>
+        </div>
+        {/*
+        <ContactUsCard />
+        */}
       </div>
     </section>
   );

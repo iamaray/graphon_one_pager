@@ -6,68 +6,93 @@ const navItems = [
   { href: "#about", label: "ABOUT" },
   { href: "#data-producers", label: "DATA PRODUCERS" },
   { href: "#data-consumers", label: "DATA CONSUMERS" },
-  { href: "#contact-us", label: "CONTACT US" },
+  // { href: "#contact-us", label: "CONTACT US" },
 ] as const satisfies readonly { href: `#${string}`; label: string }[];
 
 type NavHref = (typeof navItems)[number]["href"];
 
 const defaultHref = navItems[0].href;
 
-function isNavHref(value: string): value is NavHref {
-  return navItems.some((item) => item.href === value);
-}
-
 export default function TopNav() {
   const [activeHref, setActiveHref] = useState<NavHref>(defaultHref);
 
   useEffect(() => {
-    function syncActiveHref() {
-      const hash = window.location.hash;
+    let animationFrameId: number | null = null;
 
-      setActiveHref(isNavHref(hash) ? hash : defaultHref);
+    function readTopNavHeight() {
+      const rootStyles = getComputedStyle(document.documentElement);
+      const rawHeight = rootStyles.getPropertyValue("--top-nav-height").trim();
+      const numericHeight = Number.parseFloat(rawHeight);
+
+      if (Number.isNaN(numericHeight)) {
+        return 0;
+      }
+
+      if (rawHeight.endsWith("rem")) {
+        const rootFontSize = Number.parseFloat(rootStyles.fontSize);
+
+        return numericHeight * rootFontSize;
+      }
+
+      return numericHeight;
     }
 
-    syncActiveHref();
-    window.addEventListener("hashchange", syncActiveHref);
-    window.addEventListener("popstate", syncActiveHref);
+    function updateActiveHref() {
+      animationFrameId = null;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const activeEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (first, second) =>
-              Math.abs(first.boundingClientRect.top) -
-              Math.abs(second.boundingClientRect.top),
-          )[0];
+      const tolerance = 4;
+      const activationY = window.scrollY + readTopNavHeight() + tolerance;
+      const nextActive = navItems.reduce<{
+        href: NavHref;
+        top: number;
+      }>(
+        (current, item) => {
+          const section = document.getElementById(item.href.slice(1));
 
-        if (!activeEntry) {
-          return;
-        }
+          if (!section) {
+            return current;
+          }
 
-        const href = `#${activeEntry.target.id}`;
+          const sectionTop =
+            section.getBoundingClientRect().top + window.scrollY;
 
-        if (isNavHref(href)) {
-          setActiveHref(href);
-        }
-      },
-      {
-        rootMargin: "0px 0px -80% 0px",
-      },
-    );
+          if (sectionTop > activationY || sectionTop < current.top) {
+            return current;
+          }
 
-    navItems.forEach((item) => {
-      const section = document.getElementById(item.href.slice(1));
+          return { href: item.href, top: sectionTop };
+        },
+        { href: defaultHref, top: Number.NEGATIVE_INFINITY },
+      );
 
-      if (section) {
-        observer.observe(section);
+      setActiveHref(nextActive.href);
+    }
+
+    function scheduleUpdateActiveHref() {
+      if (animationFrameId !== null) {
+        return;
       }
+
+      animationFrameId = window.requestAnimationFrame(updateActiveHref);
+    }
+
+    scheduleUpdateActiveHref();
+    window.addEventListener("scroll", scheduleUpdateActiveHref, {
+      passive: true,
     });
+    window.addEventListener("resize", scheduleUpdateActiveHref);
+    window.addEventListener("hashchange", scheduleUpdateActiveHref);
+    window.addEventListener("popstate", scheduleUpdateActiveHref);
 
     return () => {
-      window.removeEventListener("hashchange", syncActiveHref);
-      window.removeEventListener("popstate", syncActiveHref);
-      observer.disconnect();
+      window.removeEventListener("scroll", scheduleUpdateActiveHref);
+      window.removeEventListener("resize", scheduleUpdateActiveHref);
+      window.removeEventListener("hashchange", scheduleUpdateActiveHref);
+      window.removeEventListener("popstate", scheduleUpdateActiveHref);
+
+      if (animationFrameId !== null) {
+        window.cancelAnimationFrame(animationFrameId);
+      }
     };
   }, []);
 

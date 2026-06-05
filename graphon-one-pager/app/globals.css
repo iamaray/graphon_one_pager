@@ -113,7 +113,3 @@ body {
 .info-card[open] .info-card-chevron {
   transform: rotate(90deg);
 }
-
-.info-card-row:has(.info-card[open]) .info-card:not([open]) {
-  display: none;
-}
