@@ -1,6 +1,6 @@
 "use client";
 
-import ThemeToggle from "./ThemeToggle";
+// import ThemeToggle from "./ThemeToggle";
 import TopNav from "./TopNavItems";
 
 export default function TopNavBar() {

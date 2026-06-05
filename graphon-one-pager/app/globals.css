@@ -2,7 +2,7 @@
 
 :root,
 :root[data-theme="light"] {
-  --top-nav-height: 8.75rem;
+  --top-nav-height: 5.8125rem;
   --background: #eeeeee;
   --foreground: #1a1a1a;
   --surface: #f8f8f8;
@@ -17,7 +17,14 @@
 @media (min-width: 40rem) {
   :root,
   :root[data-theme="light"] {
-    --top-nav-height: 3.75rem;
+    --top-nav-height: 4.8125rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  :root,
+  :root[data-theme="light"] {
+    --top-nav-height: 3.8125rem;
   }
 }
 
@@ -72,6 +79,14 @@
 
 html {
   background: var(--background);
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--top-nav-height);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
