@@ -1,15 +1,18 @@
 import TopCard from "@/components/TopCard";
-import InfoCard, { type ExpandedInfoCardRow } from "@/components/InfoCard";
-import InfoCardRowLayout from "@/components/InfoCardRowLayout";
+import InfoCard, { type InfoCardExpandedRow } from "@/components/InfoCard";
 import DelinUserTypeHeader from "@/components/DelinUserTypeHeader";
-// import DelinAboutUsHeader from "@/components/DelinAboutUsHeader";
 
 import { BsGpuCard } from "react-icons/bs";
 import { FaShield } from "react-icons/fa6";
 import { MdStorage, MdScience } from "react-icons/md";
 import { PiGraphFill } from "react-icons/pi";
 import { TbContract } from "react-icons/tb";
-// import { FaMessage } from "react-icons/fa6";
+
+const infoCardRowClassName =
+  "mx-auto grid w-full max-w-6xl gap-4 px-4 py-8 sm:grid-cols-3 sm:gap-6 sm:px-6 sm:py-10 lg:px-8";
+
+const introClassName =
+  "mx-auto mt-6 max-w-3xl px-5 text-base leading-7 text-text-muted sm:text-lg sm:leading-8 [&_strong]:font-semibold [&_strong]:text-foreground";
 
 function PlaceholderDemo({ label }: { label: string }) {
   return (
@@ -39,7 +42,7 @@ function PlaceholderDemo({ label }: { label: string }) {
   );
 }
 
-function placeholderRows(topic: string): ExpandedInfoCardRow[] {
+function placeholderRows(topic: string): InfoCardExpandedRow[] {
   return [
     {
       demo: <PlaceholderDemo label={`${topic} setup`} />,
@@ -56,10 +59,6 @@ function placeholderRows(topic: string): ExpandedInfoCardRow[] {
   ];
 }
 
-function ForegroundBold({ body }: { body: string }) {
-  return <strong className="font-semibold text-foreground">{body}</strong>;
-}
-
 export default function Home() {
   return (
     <>
@@ -69,18 +68,17 @@ export default function Home() {
 
       <section id="data-producers">
         <DelinUserTypeHeader action="PRODUCE" />
-        <p className="mx-auto mt-6 max-w-3xl px-5 text-base leading-7 text-text-muted sm:text-lg sm:leading-8">
+        <p className={introClassName}>
           GraphonMarkets will let you, as a scientist,{" "}
-          <ForegroundBold body="fund your science with your science" />. We
-          believe that now, more than ever, experimental scientific work is{" "}
-          <ForegroundBold body="inherently commmercially valuable" />. The AI
-          industry is built on the output of human intelligence, and it is
-          mathematically bound to being so. With the mass of readily accessible
-          data largely consumed by this industry, demand for{" "}
-          <ForegroundBold body="frontier data " /> at the edge of human
-          intelligence is accelerating.
+          <strong>fund your science with your science</strong>. We believe that
+          now, more than ever, experimental scientific work is{" "}
+          <strong>inherently commercially valuable</strong>. The AI industry is
+          built on the output of human intelligence, and it is mathematically
+          bound to being so. With the mass of readily accessible data largely
+          consumed by this industry, demand for <strong>frontier data</strong>{" "}
+          at the edge of human intelligence is accelerating.
         </p>
-        <InfoCardRowLayout>
+        <div className={infoCardRowClassName}>
           <InfoCard
             Icon={MdStorage}
             header="Structure and Store"
@@ -144,30 +142,27 @@ export default function Home() {
             }
             expandedRows={placeholderRows("Peer-to-peer marketplace")}
           />
-        </InfoCardRowLayout>
+        </div>
       </section>
 
       <section id="data-consumers">
         <DelinUserTypeHeader action="CONSUME" />
 
-        <p className="mx-auto mt-6 max-w-3xl px-5 text-base leading-7 text-text-muted sm:text-lg sm:leading-8">
+        <p className={introClassName}>
           GraphonMarkets will fix the data-constraint problem.{" "}
-          <ForegroundBold body="Frontier data" /> play a more prominent role in
-          your competitive edge than ever before, and we want to help you bring
-          your models to the next stratum of performance by giving you access to
-          scientific datasets that are <ForegroundBold body="high-quality" />,{" "}
-          <ForegroundBold body="clean" />,{" "}
-          <ForegroundBold body="domain specific" />, and{" "}
-          <ForegroundBold body="produced by the smartest humans" />. We know
-          that scientific datasets are{" "}
-          <ForegroundBold body="fragmented across labs" />,
-          <ForegroundBold body=" buried in inconsistent formats" />, and
-          constrained by <ForegroundBold body=" unclear access terms" />, but
-          GraphonMarkets removes these barriers and incentivizes labs to bring
-          their output online.
+          <strong>Frontier data</strong> play a more prominent role in your
+          competitive edge than ever before, and we want to help you bring your
+          models to the next stratum of performance by giving you access to
+          scientific datasets that are <strong>high-quality</strong>,{" "}
+          <strong>clean</strong>, <strong>domain specific</strong>, and{" "}
+          <strong>produced by the smartest humans</strong>. We know that
+          scientific datasets are <strong>fragmented across labs</strong>,
+          <strong> buried in inconsistent formats</strong>, and constrained by{" "}
+          <strong> unclear access terms</strong>, but GraphonMarkets removes
+          these barriers and incentivizes labs to bring their output online.
         </p>
 
-        <InfoCardRowLayout>
+        <div className={infoCardRowClassName}>
           <InfoCard
             Icon={MdScience}
             header="Source Specialized Data"
@@ -183,7 +178,7 @@ export default function Home() {
                   <strong>Evaluate before you buy. </strong> The datasets you
                   access through GraphonMarkets are usable at scale. Examine all
                   aspects of a dataset to make sure it&apos;s right for your
-                  model. Review metadata, acces terms, and quality indicators.
+                  model. Review metadata, access terms, and quality indicators.
                 </li>
               </ul>
             }
@@ -197,8 +192,8 @@ export default function Home() {
                 <li>
                   <strong>Know exactly what you&apos;re getting.</strong>{" "}
                   GraphonMarkets eliminates the barriers of compliance and
-                  consent. See usage rights, read limits, and export & compute
-                  restictions up front.
+                  consent. See usage rights, read limits, and export/compute
+                  restrictions up front.
                 </li>
                 <li>
                   <strong>Choose the right access model.</strong> Different labs
@@ -210,7 +205,6 @@ export default function Home() {
             }
             expandedRows={placeholderRows("Contract review")}
           />
-          {/* Fix this card to say something about how buyers can use their own compute or something */}
           <InfoCard
             Icon={BsGpuCard}
             header="Bring Your Own Workflow"
@@ -218,20 +212,20 @@ export default function Home() {
               <ul>
                 <li>
                   <strong>Don&apos;t sacrifice compute.</strong> Have your own
-                  cluster? No problem. Execute your code next to data with
-                  proprietary compute without friction.
+                  cluster? No problem. Own a secure compute environment where
+                  your code executes next to data using your proprietary
+                  compute, without friction.
                 </li>
                 <li>
                   <strong>Integrate data more efficiently.</strong> Plug
-                  directly into your workflow. Spend less time hunting for
-                  science data through fragmented channels and more time
-                  building and training your models.
+                  directly into your workflow. Aggregate vast amounts of data
+                  across multiple labs to build sophisticated models.
                 </li>
               </ul>
             }
             expandedRows={placeholderRows("Buyer collaboration")}
           />
-        </InfoCardRowLayout>
+        </div>
       </section>
     </>
   );

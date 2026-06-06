@@ -1,6 +1,5 @@
 "use client";
 
-// import ThemeToggle from "./ThemeToggle";
 import TopNav from "./TopNavItems";
 
 export default function TopNavBar() {
@@ -14,7 +13,6 @@ export default function TopNavBar() {
           <p className="text-xs text-text-muted">The Science Data Exchange</p>
         </div>
         <TopNav />
-        {/* <ThemeToggle /> */}
       </div>
     </nav>
   );

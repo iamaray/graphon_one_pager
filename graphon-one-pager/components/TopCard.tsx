@@ -3,20 +3,21 @@ import { FaXTwitter } from "react-icons/fa6";
 import { MdArrowForward, MdEmail } from "react-icons/md";
 import TypedHeroWord from "./TypedHeroWord";
 
-type TopCardButtonProps = {
+type TopCardLinkProps = {
   children: ReactNode;
+  href: string;
   variant: "primary" | "secondary";
 };
 
-function TopCardButton({ children, variant }: TopCardButtonProps) {
+function TopCardLink({ children, href, variant }: TopCardLinkProps) {
   const variantClassName =
     variant === "primary"
       ? "bg-accent text-accent-foreground shadow-sm hover:bg-foreground/90"
       : "border border-border bg-surface-muted text-foreground hover:border-accent hover:bg-surface";
 
   return (
-    <button
-      type="button"
+    <a
+      href={href}
       className={`group inline-flex h-11 w-40 items-center justify-center rounded-md px-5 text-sm font-semibold transition duration-150 active:translate-y-px active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring/40 ${variantClassName}`}
     >
       <span>{children}</span>
@@ -24,7 +25,7 @@ function TopCardButton({ children, variant }: TopCardButtonProps) {
         className="ml-2 h-4 w-4 transition-transform duration-150 group-hover:translate-x-0.5"
         aria-hidden="true"
       />
-    </button>
+    </a>
   );
 }
 
@@ -39,13 +40,14 @@ export default function TopCard() {
           The AI industry is data-constrained. We&apos;re solving this by
           building the exchange and infrastructure layer that makes frontier
           scientific data usable at scale.
-          {/* GraphonMarkets provides a exchange where
-          experimental science labs can sell data usage rights to firms training
-          cutting-ege models. */}
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <TopCardButton variant="primary">List Your Data</TopCardButton>
-          <TopCardButton variant="secondary">Access Data</TopCardButton>
+          <TopCardLink href="#data-producers" variant="primary">
+            List Your Data
+          </TopCardLink>
+          <TopCardLink href="#data-consumers" variant="secondary">
+            Access Data
+          </TopCardLink>
         </div>
         <div
           id="contact-us"
@@ -66,9 +68,6 @@ export default function TopCard() {
             <span>GraphonDataExch</span>
           </a>
         </div>
-        {/*
-        <ContactUsCard />
-        */}
       </div>
     </section>
   );

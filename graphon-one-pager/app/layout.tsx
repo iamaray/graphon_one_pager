@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="light" className="bg-background">
+    <html lang="en" className="bg-background">
       <body className="min-h-screen bg-background text-foreground antialiased">
         <TopNavBar />
         <main className="flex w-full flex-col bg-background pt-[var(--top-nav-height)]">
