@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const HERO_WORDS = [
   "Genomics",
@@ -85,8 +85,13 @@ function getTypingDelay(state: TypingState) {
   return state.phase === "typing" ? TYPE_STEP_MS : DELETE_STEP_MS;
 }
 
-export default function TypedHeroWord() {
+export default function TypedHeroWord({
+  onWordChange,
+}: {
+  onWordChange?: () => void;
+}) {
   const [typingState, setTypingState] = useState(initialTypingState);
+  const hasMounted = useRef(false);
   const currentWord = HERO_WORDS[typingState.wordIndex];
   const visibleText = currentWord.slice(0, typingState.visibleCharacterCount);
 
@@ -99,6 +104,15 @@ export default function TypedHeroWord() {
       window.clearTimeout(timeout);
     };
   }, [typingState]);
+
+  useEffect(() => {
+    if (hasMounted.current) {
+      onWordChange?.();
+      return;
+    }
+
+    hasMounted.current = true;
+  }, [onWordChange, typingState.wordIndex]);
 
   return (
     <span

@@ -1,4 +1,9 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { useCallback, useState } from "react";
+import Image from "next/image";
+import graphonIcon from "@/app/graphon_icon_2.svg";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdArrowForward, MdEmail } from "react-icons/md";
 import TypedHeroWord from "./TypedHeroWord";
@@ -30,11 +35,22 @@ function TopCardLink({ children, href, variant }: TopCardLinkProps) {
 }
 
 export default function TopCard() {
+  const [isIconRotated, setIsIconRotated] = useState(false);
+  const rotateIcon = useCallback(() => {
+    setIsIconRotated((current) => !current);
+  }, []);
+
   return (
     <section className="w-full px-5 pb-8 pt-12 sm:pb-10 sm:pt-16">
       <div className="mx-auto flex max-w-3xl flex-col">
         <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
-          Compute &lt;&gt; <TypedHeroWord />
+          Compute{" "}
+          <Image
+            src={graphonIcon}
+            alt=""
+            className={`mx-2 inline-block h-8 w-auto align-[-0.1em] transition-transform duration-500 sm:h-10 ${isIconRotated ? "rotate-180" : ""}`}
+          />{" "}
+          <TypedHeroWord onWordChange={rotateIcon} />
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-7 text-text-muted sm:text-lg">
           The AI industry is data-constrained. We&apos;re solving this by

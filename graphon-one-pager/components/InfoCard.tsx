@@ -1,6 +1,7 @@
 import type { IconType } from "react-icons";
 import type { ReactNode } from "react";
-import { MdChevronRight } from "react-icons/md";
+import Image from "next/image";
+import graphonIcon from "@/app/graphon_icon_2.svg";
 
 export type InfoCardExpandedRow = {
   demo: ReactNode;
@@ -31,9 +32,10 @@ export default function InfoCard({
         <h2 className="text-card-title flex-1 text-sm font-semibold text-foreground">
           {header}
         </h2>
-        <MdChevronRight
-          className="info-card-chevron mt-1 h-5 w-5 shrink-0 text-text-muted transition-transform duration-200"
-          aria-hidden="true"
+        <Image
+          src={graphonIcon}
+          alt=""
+          className="info-card-chevron mt-1 h-5 w-5 shrink-0 transition-transform duration-200"
         />
       </div>
       <div className="mt-4 space-y-4 break-words text-sm leading-6 text-text-muted [&_strong]:font-semibold [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:space-y-4 [&_ul]:pl-5">
