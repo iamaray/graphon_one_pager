@@ -12,7 +12,7 @@ type InfoCardProps = {
   header: string;
   body: ReactNode;
   Icon: IconType;
-  expandedRows: InfoCardExpandedRow[];
+  expandedRows?: InfoCardExpandedRow[];
 };
 
 export default function InfoCard({
@@ -21,6 +21,7 @@ export default function InfoCard({
   Icon,
   expandedRows,
 }: InfoCardProps) {
+  const isExpandable = expandedRows !== undefined;
   const cardClassName =
     "info-card group flex min-h-40 flex-col rounded-lg border border-border bg-surface p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-md focus-within:border-accent focus-within:ring-2 focus-within:ring-focus-ring/30";
   const cardContent = (
@@ -32,17 +33,23 @@ export default function InfoCard({
         <h2 className="text-card-title flex-1 text-sm font-semibold text-foreground">
           {header}
         </h2>
-        <Image
-          src={graphonIcon}
-          alt=""
-          className="info-card-chevron mt-1 h-5 w-5 shrink-0 transition-transform duration-200"
-        />
+        {isExpandable ? (
+          <Image
+            src={graphonIcon}
+            alt=""
+            className="info-card-chevron mt-1 h-5 w-5 shrink-0 transition-transform duration-200"
+          />
+        ) : null}
       </div>
       <div className="mt-4 space-y-4 break-words text-sm leading-6 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-4 [&_ul]:pl-5">
         {body}
       </div>
     </>
   );
+
+  if (!isExpandable) {
+    return <div className={cardClassName}>{cardContent}</div>;
+  }
 
   return (
     <details className={cardClassName} name="info-card">

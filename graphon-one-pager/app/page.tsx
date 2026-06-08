@@ -1,5 +1,6 @@
 import TopCard from "@/components/TopCard";
-import InfoCard, { type InfoCardExpandedRow } from "@/components/InfoCard";
+import InfoCard from "@/components/InfoCard";
+// import DelinHowItWorksHeader from "@/components/DelinHowItWorksHeader";
 import DelinUserTypeHeader from "@/components/DelinUserTypeHeader";
 
 import { BsGpuCard } from "react-icons/bs";
@@ -14,50 +15,50 @@ const infoCardRowClassName =
 const introClassName =
   "mx-auto mt-6 max-w-3xl px-5 text-base leading-7 sm:text-lg sm:leading-8 [&_strong]:font-semibold";
 
-function PlaceholderDemo({ label }: { label: string }) {
-  return (
-    <div className="rounded-lg border border-border bg-surface-muted p-4">
-      <div className="mb-5 flex items-center justify-between gap-4">
-        <p className="text-xs font-semibold uppercase tracking-wide text-foreground">
-          {label}
-        </p>
-        <div className="h-2 w-10 rounded-full bg-foreground/30" />
-      </div>
-      <div className="grid grid-cols-4 gap-3">
-        <div className="col-span-3 space-y-3">
-          <div className="h-3 rounded-full bg-foreground/80" />
-          <div className="h-3 w-4/5 rounded-full bg-foreground/40" />
-          <div className="h-3 w-2/3 rounded-full bg-foreground/30" />
-        </div>
-        <div className="rounded-md border border-border bg-surface p-3">
-          <div className="mx-auto h-10 w-10 rounded-full border border-foreground/30" />
-        </div>
-      </div>
-      <div className="mt-5 grid grid-cols-3 gap-3">
-        <div className="h-16 rounded-md bg-surface" />
-        <div className="h-16 rounded-md bg-surface" />
-        <div className="h-16 rounded-md bg-surface" />
-      </div>
-    </div>
-  );
-}
+// function PlaceholderDemo({ label }: { label: string }) {
+//   return (
+//     <div className="rounded-lg border border-border bg-surface-muted p-4">
+//       <div className="mb-5 flex items-center justify-between gap-4">
+//         <p className="text-xs font-semibold uppercase tracking-wide text-foreground">
+//           {label}
+//         </p>
+//         <div className="h-2 w-10 rounded-full bg-foreground/30" />
+//       </div>
+//       <div className="grid grid-cols-4 gap-3">
+//         <div className="col-span-3 space-y-3">
+//           <div className="h-3 rounded-full bg-foreground/80" />
+//           <div className="h-3 w-4/5 rounded-full bg-foreground/40" />
+//           <div className="h-3 w-2/3 rounded-full bg-foreground/30" />
+//         </div>
+//         <div className="rounded-md border border-border bg-surface p-3">
+//           <div className="mx-auto h-10 w-10 rounded-full border border-foreground/30" />
+//         </div>
+//       </div>
+//       <div className="mt-5 grid grid-cols-3 gap-3">
+//         <div className="h-16 rounded-md bg-surface" />
+//         <div className="h-16 rounded-md bg-surface" />
+//         <div className="h-16 rounded-md bg-surface" />
+//       </div>
+//     </div>
+//   );
+// }
 
-function placeholderRows(topic: string): InfoCardExpandedRow[] {
-  return [
-    {
-      demo: <PlaceholderDemo label={`${topic} setup`} />,
-      description: `Placeholder demo area for the first ${topic.toLowerCase()} workflow. This will be replaced with an interactive product mockup and the supporting explanation.`,
-    },
-    {
-      demo: <PlaceholderDemo label={`${topic} review`} />,
-      description: `Placeholder demo area for reviewing and adjusting the ${topic.toLowerCase()} experience before committing to an action.`,
-    },
-    {
-      demo: <PlaceholderDemo label={`${topic} result`} />,
-      description: `Placeholder demo area for the final ${topic.toLowerCase()} outcome, paired with concise explanatory text on the right.`,
-    },
-  ];
-}
+// function placeholderRows(topic: string): InfoCardExpandedRow[] {
+//   return [
+//     {
+//       demo: <PlaceholderDemo label={`${topic} setup`} />,
+//       description: `Placeholder demo area for the first ${topic.toLowerCase()} workflow. This will be replaced with an interactive product mockup and the supporting explanation.`,
+//     },
+//     {
+//       demo: <PlaceholderDemo label={`${topic} review`} />,
+//       description: `Placeholder demo area for reviewing and adjusting the ${topic.toLowerCase()} experience before committing to an action.`,
+//     },
+//     {
+//       demo: <PlaceholderDemo label={`${topic} result`} />,
+//       description: `Placeholder demo area for the final ${topic.toLowerCase()} outcome, paired with concise explanatory text on the right.`,
+//     },
+//   ];
+// }
 
 export default function Home() {
   return (
@@ -65,6 +66,10 @@ export default function Home() {
       <div id="about">
         <TopCard />
       </div>
+
+      {/* <section id="how-it-works">
+        <DelinHowItWorksHeader />
+      </section> */}
 
       <section id="data-producers">
         <DelinUserTypeHeader action="PRODUCE" />
@@ -85,20 +90,19 @@ export default function Home() {
             body={
               <ul>
                 <li>
-                  <strong>Already have a storage solution?</strong> Hook into
-                  your existing cloud provider. Let us be the exchange layer
-                  that empowers you to commercialize data access more
-                  effectively than via any existing platform.
+                  <strong>Vet and structure your data.</strong> We&apos;ll help
+                  you store and structure your data. After that, we&apos;ll vet
+                  the quality of your data and get you ready for
+                  commercialization.
                 </li>
                 <li>
-                  <strong>Unstructured, dispersed data? </strong> Your
-                  scientific output is valuable, and we&apos;re building the
-                  infrastructure layer that makes it usable at scale. Let us
-                  help you structure a storage solution that works.
+                  <strong>Write detailed data cards.</strong> For each
+                  datastream you hook into GraphonMarkets, write a detailed data
+                  card. Make buyers aware of metadata, compliance info, and
+                  generation methods.
                 </li>
               </ul>
             }
-            expandedRows={placeholderRows("Flexible storage")}
           />
           <InfoCard
             Icon={FaShield}
@@ -106,20 +110,18 @@ export default function Home() {
             body={
               <ul>
                 <li>
-                  <strong>Enforce access rights.</strong> You configure
-                  &quot;access keys&quot; that enforce custom usage rights on
-                  your data. Control access to your data by tuning read limits,
-                  column encryption, and expiration dates.
+                  <strong>Enforce access rights.</strong> You configure access
+                  keys that enforce custom usage rights on your datastreams.
+                  Keys enforce granular access limits and expiration dates.
                 </li>
                 <li>
                   <strong>Protect your data.</strong> Take control over export
-                  permissions to keep your data in good hands. Require
-                  data-to-compute cleanrooms, and directly monetize compute.
-                  Alternatively, allow for full export of your data.
+                  and compute permissions to keep your data in good hands.
+                  Control the visibility and exportability of your data, and set
+                  limits on the operations buyers are allowed to apply.
                 </li>
               </ul>
             }
-            expandedRows={placeholderRows("Granular permissions")}
           />
           <InfoCard
             Icon={PiGraphFill}
@@ -140,7 +142,6 @@ export default function Home() {
                 </li>
               </ul>
             }
-            expandedRows={placeholderRows("Peer-to-peer marketplace")}
           />
         </div>
       </section>
@@ -175,14 +176,14 @@ export default function Home() {
                   impossible to source through public repos.
                 </li>
                 <li>
-                  <strong>Evaluate before you buy. </strong> The datasets you
-                  access through GraphonMarkets are usable at scale. Examine all
-                  aspects of a dataset to make sure it&apos;s right for your
-                  model. Review metadata, access terms, and quality indicators.
+                  <strong>Evaluate before you buy. </strong> Examine all aspects
+                  of a dataset to make sure it&apos;s right for your model. Read
+                  highly detailed data cards with deep metadata and compliance
+                  information. Download a sample to vet data in a way that fits
+                  your needs.
                 </li>
               </ul>
             }
-            expandedRows={placeholderRows("Science data discovery")}
           />
           <InfoCard
             Icon={TbContract}
@@ -191,9 +192,9 @@ export default function Home() {
               <ul>
                 <li>
                   <strong>Know exactly what you&apos;re getting.</strong>{" "}
-                  GraphonMarkets eliminates the barriers of compliance and
-                  consent. See usage rights, read limits, and export/compute
-                  restrictions up front.
+                  GraphonMarkets will reduce the murkiness of compliance and
+                  consent around data acquisition. See usage rights, read
+                  limits, and export/compute restrictions up front.
                 </li>
                 <li>
                   <strong>Choose the right access model.</strong> Different labs
@@ -203,27 +204,26 @@ export default function Home() {
                 </li>
               </ul>
             }
-            expandedRows={placeholderRows("Contract review")}
           />
           <InfoCard
             Icon={BsGpuCard}
-            header="Bring Your Own Workflow"
+            header="Train and Eval Across Labs"
             body={
               <ul>
                 <li>
-                  <strong>Don&apos;t sacrifice compute.</strong> Have your own
-                  cluster? No problem. Own a secure compute environment where
-                  your code executes next to data using your proprietary
-                  compute, without friction.
+                  <strong>Own a secure environment.</strong> We will provide you
+                  an environment to help aggregate vast, complex train, val, and
+                  test sets compiled from datastreams across multiple labs.
                 </li>
                 <li>
-                  <strong>Integrate data more efficiently.</strong> Plug
-                  directly into your workflow. Aggregate vast amounts of data
-                  across multiple labs to build sophisticated models.
+                  <strong>Navigate heterogeneous permissions.</strong> Your
+                  aggregation environment is backed by a data-intelligence layer
+                  that acts on your keys and the associated data cards.
+                  Effortlessly combine datastreams with heterogeneous access
+                  permissions.
                 </li>
               </ul>
             }
-            expandedRows={placeholderRows("Buyer collaboration")}
           />
         </div>
       </section>
