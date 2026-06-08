@@ -3,8 +3,8 @@ import InfoCard, { type InfoCardExpandedRow } from "@/components/InfoCard";
 import DelinUserTypeHeader from "@/components/DelinUserTypeHeader";
 
 import { BsGpuCard } from "react-icons/bs";
-import { FaShield } from "react-icons/fa6";
-import { MdStorage, MdScience } from "react-icons/md";
+import { FaShield, FaXTwitter } from "react-icons/fa6";
+import { MdEmail, MdScience, MdStorage } from "react-icons/md";
 import { PiGraphFill } from "react-icons/pi";
 import { TbContract } from "react-icons/tb";
 
@@ -225,6 +225,33 @@ export default function Home() {
             }
             expandedRows={placeholderRows("Buyer collaboration")}
           />
+        </div>
+      </section>
+
+      <section
+        id="contact-us"
+        className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8"
+      >
+        <div className="border-t border-border pt-8">
+          <h2 className="text-section-title font-semibold tracking-wide text-foreground">
+            CONTACT US
+          </h2>
+          <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4 text-base font-medium text-foreground">
+            <a
+              href="mailto:arya@graphonmarkets.com"
+              className="inline-flex items-center gap-3 transition-colors hover:text-text-muted"
+            >
+              <MdEmail className="h-6 w-6 shrink-0" aria-hidden="true" />
+              <span>arya@graphonmarkets.com</span>
+            </a>
+            <a
+              href="https://x.com/GraphonDataExch"
+              className="inline-flex items-center gap-3 transition-colors hover:text-text-muted"
+            >
+              <FaXTwitter className="h-6 w-6 shrink-0" aria-hidden="true" />
+              <span>GraphonDataExch</span>
+            </a>
+          </div>
         </div>
       </section>
     </>

@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 const HERO_WORDS = [
   "Genomics",
   "Immunology",
-  "Marine Biology",
   "Neuroscience",
   "Biochemistry",
   "Oncology",

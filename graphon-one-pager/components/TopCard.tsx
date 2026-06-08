@@ -1,43 +1,17 @@
 "use client";
 
-import type { ReactNode } from "react";
 import { useCallback, useState } from "react";
 import Image from "next/image";
 import graphonIcon from "@/app/graphon_icon_2.svg";
-import { FaXTwitter } from "react-icons/fa6";
-import { MdArrowForward, MdEmail } from "react-icons/md";
 import TypedHeroWord from "./TypedHeroWord";
-
-type TopCardLinkProps = {
-  children: ReactNode;
-  href: string;
-  variant: "primary" | "secondary";
-};
-
-function TopCardLink({ children, href, variant }: TopCardLinkProps) {
-  const variantClassName =
-    variant === "primary"
-      ? "bg-accent text-accent-foreground shadow-sm hover:bg-foreground/90"
-      : "border border-border bg-surface-muted text-foreground hover:border-accent hover:bg-surface";
-
-  return (
-    <a
-      href={href}
-      className={`group inline-flex h-11 w-40 items-center justify-center rounded-md px-5 text-sm font-semibold transition duration-150 active:translate-y-px active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring/40 ${variantClassName}`}
-    >
-      <span>{children}</span>
-      <MdArrowForward
-        className="ml-2 h-4 w-4 transition-transform duration-150 group-hover:translate-x-0.5"
-        aria-hidden="true"
-      />
-    </a>
-  );
-}
 
 export default function TopCard() {
   const [isIconRotated, setIsIconRotated] = useState(false);
   const rotateIcon = useCallback(() => {
     setIsIconRotated((current) => !current);
+  }, []);
+  const scrollToContact = useCallback(() => {
+    document.getElementById("contact-us")?.scrollIntoView();
   }, []);
 
   return (
@@ -57,32 +31,14 @@ export default function TopCard() {
           building the exchange and infrastructure layer that makes frontier
           scientific data usable at scale.
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <TopCardLink href="#data-producers" variant="primary">
-            List Your Data
-          </TopCardLink>
-          <TopCardLink href="#data-consumers" variant="secondary">
-            Access Data
-          </TopCardLink>
-        </div>
-        <div
-          id="contact-us"
-          className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 text-base font-medium text-foreground"
-        >
-          <a
-            href="mailto:arya@graphonmarkets.com"
-            className="inline-flex items-center gap-3 transition-colors hover:text-text-muted"
+        <div className="mt-8">
+          <button
+            type="button"
+            onClick={scrollToContact}
+            className="inline-flex h-11 w-full max-w-[20.75rem] items-center justify-center rounded-md border border-border bg-background px-5 text-sm font-semibold tracking-wide text-foreground transition duration-150 hover:border-accent hover:bg-background active:translate-y-px active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring/40"
           >
-            <MdEmail className="h-6 w-6 shrink-0" aria-hidden="true" />
-            <span>arya@graphonmarkets.com</span>
-          </a>
-          <a
-            href="https://x.com/GraphonDataExch"
-            className="inline-flex items-center gap-3 transition-colors hover:text-text-muted"
-          >
-            <FaXTwitter className="h-6 w-6 shrink-0" aria-hidden="true" />
-            <span>GraphonDataExch</span>
-          </a>
+            COMING SOON
+          </button>
         </div>
       </div>
     </section>

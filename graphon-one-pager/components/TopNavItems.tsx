@@ -4,6 +4,7 @@ const navItems = [
   { href: "#about", label: "ABOUT" },
   { href: "#data-producers", label: "DATA PRODUCERS" },
   { href: "#data-consumers", label: "DATA CONSUMERS" },
+  { href: "#contact-us", label: "CONTACT US" },
 ] as const satisfies readonly { href: `#${string}`; label: string }[];
 
 export default function TopNav() {

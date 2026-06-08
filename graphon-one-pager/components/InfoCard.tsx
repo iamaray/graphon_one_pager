@@ -45,7 +45,7 @@ export default function InfoCard({
   );
 
   return (
-    <details className={cardClassName}>
+    <details className={cardClassName} name="info-card">
       <summary className="list-none cursor-pointer focus-visible:outline-none">
         {cardContent}
       </summary>
