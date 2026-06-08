@@ -26,7 +26,7 @@ export default function TopCard() {
           />{" "}
           <TypedHeroWord onWordChange={rotateIcon} />
         </h1>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-text-muted sm:text-lg">
+        <p className="mt-5 max-w-2xl text-base leading-7 sm:text-lg">
           The AI industry is data-constrained. We&apos;re solving this by
           building the exchange and infrastructure layer that makes frontier
           scientific data usable at scale.

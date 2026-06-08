@@ -6,7 +6,6 @@
   --foreground: #000000;
   --surface: #f8f8f8;
   --surface-muted: #e9e9e9;
-  --text-muted: #000000;
   --border-subtle: #c8c8c8;
   --accent: #000000;
   --accent-foreground: #f8f8f8;
@@ -31,8 +30,6 @@
   --color-surface: var(--surface);
   --color-surface-muted: var(--surface-muted);
   --color-text-primary: var(--foreground);
-  --color-text-muted: var(--text-muted);
-  --color-muted: var(--text-muted);
   --color-border: var(--border-subtle);
   --color-border-subtle: var(--border-subtle);
   --color-accent: var(--accent);

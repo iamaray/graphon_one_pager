@@ -38,7 +38,7 @@ export default function InfoCard({
           className="info-card-chevron mt-1 h-5 w-5 shrink-0 transition-transform duration-200"
         />
       </div>
-      <div className="mt-4 space-y-4 break-words text-sm leading-6 text-text-muted [&_strong]:font-semibold [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:space-y-4 [&_ul]:pl-5">
+      <div className="mt-4 space-y-4 break-words text-sm leading-6 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-4 [&_ul]:pl-5">
         {body}
       </div>
     </>
@@ -56,7 +56,7 @@ export default function InfoCard({
             className="grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(14rem,18rem)] md:items-center md:gap-8"
           >
             <div>{row.demo}</div>
-            <p className="text-sm leading-6 text-text-muted">
+            <p className="text-sm leading-6">
               {row.description}
             </p>
           </div>

@@ -12,7 +12,7 @@ const infoCardRowClassName =
   "mx-auto grid w-full max-w-6xl gap-4 px-4 py-8 sm:grid-cols-3 sm:gap-6 sm:px-6 sm:py-10 lg:px-8";
 
 const introClassName =
-  "mx-auto mt-6 max-w-3xl px-5 text-base leading-7 text-text-muted sm:text-lg sm:leading-8 [&_strong]:font-semibold [&_strong]:text-foreground";
+  "mx-auto mt-6 max-w-3xl px-5 text-base leading-7 sm:text-lg sm:leading-8 [&_strong]:font-semibold";
 
 function PlaceholderDemo({ label }: { label: string }) {
   return (
@@ -239,14 +239,14 @@ export default function Home() {
           <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4 text-base font-medium text-foreground">
             <a
               href="mailto:arya@graphonmarkets.com"
-              className="inline-flex items-center gap-3 transition-colors hover:text-text-muted"
+              className="inline-flex items-center gap-3 underline decoration-transparent underline-offset-4 transition-all hover:decoration-foreground hover:underline-offset-8"
             >
               <MdEmail className="h-6 w-6 shrink-0" aria-hidden="true" />
               <span>arya@graphonmarkets.com</span>
             </a>
             <a
               href="https://x.com/GraphonDataExch"
-              className="inline-flex items-center gap-3 transition-colors hover:text-text-muted"
+              className="inline-flex items-center gap-3 underline decoration-transparent underline-offset-4 transition-all hover:decoration-foreground hover:underline-offset-8"
             >
               <FaXTwitter className="h-6 w-6 shrink-0" aria-hidden="true" />
               <span>GraphonDataExch</span>

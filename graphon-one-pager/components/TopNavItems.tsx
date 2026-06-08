@@ -14,7 +14,7 @@ export default function TopNav() {
         <Link
           key={item.href}
           href={item.href}
-          className="text-text-muted transition-colors hover:text-foreground"
+          className="text-foreground underline decoration-transparent underline-offset-4 transition-all hover:decoration-foreground hover:underline-offset-8"
         >
           {item.label}
         </Link>
