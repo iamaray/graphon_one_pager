@@ -15,7 +15,7 @@ export default function TopCard() {
   }, []);
 
   return (
-    <section className="w-full px-5 pb-8 pt-12 sm:pb-10 sm:pt-16">
+    <section className="flex min-h-[calc(100svh-var(--top-nav-height))] w-full items-center px-5 py-8 sm:py-10">
       <div className="mx-auto flex max-w-3xl flex-col">
         <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
           Compute{" "}
