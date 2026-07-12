@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const HERO_WORDS = [
+const heroWords = [
   "Genomics",
   "Immunology",
   "Neuroscience",
@@ -10,78 +10,69 @@ const HERO_WORDS = [
   "Oncology",
 ] as const;
 
-const TYPE_STEP_MS = 85;
-const DELETE_STEP_MS = 45;
-const WORD_PAUSE_MS = 1200;
-const EMPTY_PAUSE_MS = 250;
-const HERO_WORD_WIDTH_CH =
-  Math.max(...HERO_WORDS.map((word) => word.length)) + 1;
-
-type TypingPhase = "typing" | "pausing" | "deleting";
+const typeStepMs = 85;
+const deleteStepMs = 45;
+const wordPauseMs = 1200;
+const emptyPauseMs = 250;
+const heroWordWidth = Math.max(...heroWords.map((word) => word.length)) + 1;
 
 type TypingState = {
   wordIndex: number;
   visibleCharacterCount: number;
-  phase: TypingPhase;
+  phase: "typing" | "pausing" | "deleting";
 };
 
 const initialTypingState: TypingState = {
   wordIndex: 0,
-  visibleCharacterCount: HERO_WORDS[0].length,
+  visibleCharacterCount: heroWords[0].length,
   phase: "pausing",
 };
 
 function getNextTypingState(state: TypingState): TypingState {
-  const currentWord = HERO_WORDS[state.wordIndex];
+  const currentWord = heroWords[state.wordIndex];
 
-  switch (state.phase) {
-    case "pausing":
+  if (state.phase === "pausing") {
+    return { ...state, phase: "deleting" };
+  }
+
+  if (state.phase === "typing") {
+    const visibleCharacterCount = state.visibleCharacterCount + 1;
+
+    if (visibleCharacterCount >= currentWord.length) {
       return {
         ...state,
-        phase: "deleting",
-      };
-    case "typing": {
-      const nextVisibleCharacterCount = state.visibleCharacterCount + 1;
-
-      if (nextVisibleCharacterCount >= currentWord.length) {
-        return {
-          ...state,
-          visibleCharacterCount: currentWord.length,
-          phase: "pausing",
-        };
-      }
-
-      return {
-        ...state,
-        visibleCharacterCount: nextVisibleCharacterCount,
+        visibleCharacterCount: currentWord.length,
+        phase: "pausing",
       };
     }
-    case "deleting":
-      if (state.visibleCharacterCount > 0) {
-        return {
-          ...state,
-          visibleCharacterCount: state.visibleCharacterCount - 1,
-        };
-      }
 
-      return {
-        wordIndex: (state.wordIndex + 1) % HERO_WORDS.length,
-        visibleCharacterCount: 0,
-        phase: "typing",
-      };
+    return { ...state, visibleCharacterCount };
   }
+
+  if (state.visibleCharacterCount > 0) {
+    return {
+      ...state,
+      visibleCharacterCount: state.visibleCharacterCount - 1,
+    };
+  }
+
+  return {
+    wordIndex: (state.wordIndex + 1) % heroWords.length,
+    visibleCharacterCount: 0,
+    phase: "typing",
+  };
 }
 
 function getTypingDelay(state: TypingState) {
   if (state.phase === "pausing") {
-    return WORD_PAUSE_MS;
+    return wordPauseMs;
   }
 
   if (state.phase === "deleting" && state.visibleCharacterCount === 0) {
-    return EMPTY_PAUSE_MS;
+    return emptyPauseMs;
   }
 
-  return state.phase === "typing" ? TYPE_STEP_MS : DELETE_STEP_MS;
+  return state.phase === "typing" ? typeStepMs : deleteStepMs;
 }
 
 export default function TypedHeroWord({
@@ -91,7 +82,7 @@ export default function TypedHeroWord({
 }) {
   const [typingState, setTypingState] = useState(initialTypingState);
   const hasMounted = useRef(false);
-  const currentWord = HERO_WORDS[typingState.wordIndex];
+  const currentWord = heroWords[typingState.wordIndex];
   const visibleText = currentWord.slice(0, typingState.visibleCharacterCount);
 
   useEffect(() => {
@@ -99,9 +90,7 @@ export default function TypedHeroWord({
       setTypingState(getNextTypingState);
     }, getTypingDelay(typingState));
 
-    return () => {
-      window.clearTimeout(timeout);
-    };
+    return () => window.clearTimeout(timeout);
   }, [typingState]);
 
   useEffect(() => {
@@ -116,7 +105,7 @@ export default function TypedHeroWord({
   return (
     <span
       className="inline-block whitespace-nowrap"
-      style={{ minWidth: `${HERO_WORD_WIDTH_CH}ch` }}
+      style={{ minWidth: `${heroWordWidth}ch` }}
     >
       {visibleText}
       <span className="ml-1 inline-block h-[0.9em] w-px translate-y-[0.1em] animate-pulse bg-foreground" />

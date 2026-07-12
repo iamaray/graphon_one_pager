@@ -1,21 +1,30 @@
+const sectionDetails = {
+  PRODUCE: {
+    label: "Data Producers",
+  },
+  CONSUME: {
+    label: "Data Consumers",
+  },
+} as const;
+
 export default function DelinUserTypeHeader({
   action,
 }: {
-  action: "PRODUCE" | "CONSUME";
+  action: keyof typeof sectionDetails;
 }) {
+  const details = sectionDetails[action];
+
   return (
-    <div className="flex flex-col">
-      <div className="mx-auto flex w-full max-w-6xl items-center gap-4 px-4 pt-10 sm:px-6 sm:pt-12 lg:px-8">
-        <div className="h-px flex-1 bg-border" />
-        <h1 className="shrink-0 text-center text-sm font-semibold tracking-wide sm:text-base">
-          Do you{" "}
-          <span className="underline decoration-border decoration-2 underline-offset-4">
-            {action}
-          </span>{" "}
-          scientific data?
-        </h1>
-        <div className="h-px flex-1 bg-border" />
+    <header className="mx-auto w-full max-w-[88rem] px-5 pt-20 sm:px-8 sm:pt-28 lg:px-12 lg:pt-36">
+      <div className="mb-8 border-b border-border pb-5">
+        <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">
+          {details.label}
+        </p>
       </div>
-    </div>
+      <h2 className="max-w-5xl font-display text-[clamp(3rem,6.2vw,6.75rem)] leading-[0.94] tracking-[-0.045em]">
+        Do you <span className="text-accent">{action.toLowerCase()}</span>{" "}
+        scientific data?
+      </h2>
+    </header>
   );
 }

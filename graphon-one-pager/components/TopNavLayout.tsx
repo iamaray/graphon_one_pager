@@ -1,69 +1,31 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import graphonLogo from "@/app/graphon_working_logo.svg";
 import TopNav from "./TopNavItems";
 
 export default function TopNavBar() {
-  const navRef = useRef<HTMLElement>(null);
-  const [isAtPageTop, setIsAtPageTop] = useState(true);
-  const [isPointerNearTop, setIsPointerNearTop] = useState(false);
-  const isVisible = isAtPageTop || isPointerNearTop;
-
-  useEffect(() => {
-    const updatePageTop = () => {
-      const isScrolledToTop = window.scrollY === 0;
-      setIsAtPageTop(isScrolledToTop);
-
-      if (!isScrolledToTop) {
-        setIsPointerNearTop(false);
-      }
-    };
-
-    updatePageTop();
-    window.addEventListener("scroll", updatePageTop, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", updatePageTop);
-    };
-  }, []);
-
-  useEffect(() => {
-    const updatePointerPosition = (event: MouseEvent) => {
-      setIsPointerNearTop(event.clientY <= (navRef.current?.offsetHeight ?? 0));
-    };
-
-    window.addEventListener("mousemove", updatePointerPosition, {
-      passive: true,
-    });
-
-    return () => {
-      window.removeEventListener("mousemove", updatePointerPosition);
-    };
-  }, []);
-
   return (
-    <nav
-      ref={navRef}
-      className={`fixed inset-x-0 top-0 z-50 border-b border-border bg-surface text-sm transition-transform duration-200 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
-      onFocusCapture={() => setIsPointerNearTop(true)}
-      onBlurCapture={() => setIsPointerNearTop(false)}
-    >
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-4 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] sm:px-6 lg:px-8">
-        <div className="flex min-w-0 items-center gap-3">
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
+      <div className="mx-auto flex h-[var(--top-nav-height)] w-full max-w-[88rem] items-center justify-between gap-4 px-5 sm:px-8 lg:px-12">
+        <a
+          href="#about"
+          className="flex min-w-0 items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          aria-label="GraphonMarkets home"
+        >
           <Image
             src={graphonLogo}
             alt=""
-            className="h-6 w-auto shrink-0 rotate-[270deg]"
+            className="h-7 w-auto shrink-0 rotate-[270deg] brightness-0 invert"
+            priority
           />
-          <div className="flex min-w-0 flex-col">
-            <p className="font-semibold tracking-wide text-foreground">
+          <div className="hidden min-w-0 sm:block">
+            <p className="text-sm font-semibold tracking-[-0.01em] text-foreground">
               GraphonMarkets
             </p>
-            <p className="text-xs">The Science Data Exchange</p>
+            <p className="font-mono text-[0.56rem] uppercase tracking-[0.14em] text-muted">
+              The Science Data Exchange
+            </p>
           </div>
-        </div>
+        </a>
         <TopNav />
       </div>
     </nav>

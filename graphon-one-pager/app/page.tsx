@@ -1,6 +1,5 @@
 import TopCard from "@/components/TopCard";
 import InfoCard from "@/components/InfoCard";
-// import DelinHowItWorksHeader from "@/components/DelinHowItWorksHeader";
 import DelinUserTypeHeader from "@/components/DelinUserTypeHeader";
 
 import { BsGpuCard } from "react-icons/bs";
@@ -10,55 +9,10 @@ import { PiGraphFill } from "react-icons/pi";
 import { TbContract } from "react-icons/tb";
 
 const infoCardRowClassName =
-  "mx-auto grid w-full max-w-6xl gap-4 px-4 py-8 sm:grid-cols-3 sm:gap-6 sm:px-6 sm:py-10 lg:px-8";
+  "mx-auto grid w-full max-w-[88rem] gap-4 px-5 pb-24 pt-12 sm:px-8 sm:pb-32 sm:pt-16 md:grid-cols-3 lg:px-12 lg:pb-40";
 
 const introClassName =
-  "mx-auto mt-6 max-w-3xl px-5 text-base leading-7 sm:text-lg sm:leading-8 [&_strong]:font-semibold";
-
-// function PlaceholderDemo({ label }: { label: string }) {
-//   return (
-//     <div className="rounded-lg border border-border bg-surface-muted p-4">
-//       <div className="mb-5 flex items-center justify-between gap-4">
-//         <p className="text-xs font-semibold uppercase tracking-wide text-foreground">
-//           {label}
-//         </p>
-//         <div className="h-2 w-10 rounded-full bg-foreground/30" />
-//       </div>
-//       <div className="grid grid-cols-4 gap-3">
-//         <div className="col-span-3 space-y-3">
-//           <div className="h-3 rounded-full bg-foreground/80" />
-//           <div className="h-3 w-4/5 rounded-full bg-foreground/40" />
-//           <div className="h-3 w-2/3 rounded-full bg-foreground/30" />
-//         </div>
-//         <div className="rounded-md border border-border bg-surface p-3">
-//           <div className="mx-auto h-10 w-10 rounded-full border border-foreground/30" />
-//         </div>
-//       </div>
-//       <div className="mt-5 grid grid-cols-3 gap-3">
-//         <div className="h-16 rounded-md bg-surface" />
-//         <div className="h-16 rounded-md bg-surface" />
-//         <div className="h-16 rounded-md bg-surface" />
-//       </div>
-//     </div>
-//   );
-// }
-
-// function placeholderRows(topic: string): InfoCardExpandedRow[] {
-//   return [
-//     {
-//       demo: <PlaceholderDemo label={`${topic} setup`} />,
-//       description: `Placeholder demo area for the first ${topic.toLowerCase()} workflow. This will be replaced with an interactive product mockup and the supporting explanation.`,
-//     },
-//     {
-//       demo: <PlaceholderDemo label={`${topic} review`} />,
-//       description: `Placeholder demo area for reviewing and adjusting the ${topic.toLowerCase()} experience before committing to an action.`,
-//     },
-//     {
-//       demo: <PlaceholderDemo label={`${topic} result`} />,
-//       description: `Placeholder demo area for the final ${topic.toLowerCase()} outcome, paired with concise explanatory text on the right.`,
-//     },
-//   ];
-// }
+  "mx-auto mt-10 max-w-[88rem] px-5 text-xl leading-8 text-foreground/68 sm:px-8 sm:text-2xl sm:leading-9 lg:px-12 lg:text-[1.7rem] lg:leading-10 [&_strong]:font-normal [&_strong]:text-foreground";
 
 export default function Home() {
   return (
@@ -66,10 +20,6 @@ export default function Home() {
       <div id="about">
         <TopCard />
       </div>
-
-      {/* <section id="how-it-works">
-        <DelinHowItWorksHeader />
-      </section> */}
 
       <section id="data-producers">
         <DelinUserTypeHeader action="PRODUCE" />
@@ -146,7 +96,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="data-consumers">
+      <section
+        id="data-consumers"
+        className="border-y border-border bg-surface/45"
+      >
         <DelinUserTypeHeader action="CONSUME" />
 
         <p className={introClassName}>
@@ -230,27 +183,41 @@ export default function Home() {
 
       <section
         id="contact-us"
-        className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8"
+        className="relative overflow-hidden px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-36"
       >
-        <div className="border-t border-border pt-8">
-          <h2 className="text-section-title font-semibold tracking-wide text-foreground">
-            CONTACT US
+        <div
+          className="technical-grid absolute inset-0 opacity-30"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto w-full max-w-[88rem]">
+          <div className="mb-10 flex items-center gap-4 border-b border-border pb-5">
+            <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">
+              Contact
+            </p>
+            <span className="h-px flex-1 bg-border" />
+          </div>
+          <h2 className="max-w-5xl font-display text-[clamp(3.4rem,7vw,7.5rem)] leading-[0.9] tracking-[-0.05em]">
+            The Science Data Exchange
           </h2>
-          <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4 text-base font-medium text-foreground">
+          <div className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-5 text-base font-medium text-foreground sm:mt-16">
             <a
               href="mailto:arya@graphonmarkets.com"
-              className="inline-flex items-center gap-3 underline decoration-transparent underline-offset-4 transition-all hover:decoration-foreground hover:underline-offset-8"
+              className="inline-flex items-center gap-4 border-b border-border pb-2 transition hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <MdEmail className="h-6 w-6 shrink-0" aria-hidden="true" />
+              <MdEmail className="h-5 w-5 shrink-0" aria-hidden="true" />
               <span>arya@graphonmarkets.com</span>
             </a>
             <a
               href="https://x.com/GraphonDataExch"
-              className="inline-flex items-center gap-3 underline decoration-transparent underline-offset-4 transition-all hover:decoration-foreground hover:underline-offset-8"
+              className="inline-flex items-center gap-4 border-b border-border pb-2 transition hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <FaXTwitter className="h-6 w-6 shrink-0" aria-hidden="true" />
+              <FaXTwitter className="h-5 w-5 shrink-0" aria-hidden="true" />
               <span>GraphonDataExch</span>
             </a>
+          </div>
+          <div className="mt-24 flex flex-wrap items-end justify-between gap-4 border-t border-border pt-5 font-mono text-[0.58rem] uppercase tracking-[0.16em] text-muted sm:mt-32">
+            <span>GraphonMarkets</span>
+            <span>Frontier data / Life sciences</span>
           </div>
         </div>
       </section>

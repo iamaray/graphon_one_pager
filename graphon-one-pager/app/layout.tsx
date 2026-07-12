@@ -4,7 +4,8 @@ import TopNavBar from "@/components/TopNavLayout";
 
 export const metadata: Metadata = {
   title: "GraphonMarkets",
-  description: "One-pager for the GraphonMarkets data rights exchange.",
+  description:
+    "The exchange and infrastructure layer that brings frontier scientific data to scale.",
 };
 
 export default function RootLayout({
