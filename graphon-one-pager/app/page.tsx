@@ -215,10 +215,6 @@ export default function Home() {
               <span>GraphonDataExch</span>
             </a>
           </div>
-          <div className="mt-24 flex flex-wrap items-end justify-between gap-4 border-t border-border pt-5 font-mono text-[0.58rem] uppercase tracking-[0.16em] text-muted sm:mt-32">
-            <span>GraphonMarkets</span>
-            <span>Frontier data / Life sciences</span>
-          </div>
         </div>
       </section>
     </>
