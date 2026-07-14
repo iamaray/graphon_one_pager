@@ -24,9 +24,9 @@ export default function Home() {
       <section id="data-producers">
         <DelinUserTypeHeader action="PRODUCE" />
         <p className={introClassName}>
-          GraphonMarkets will let you, as a scientist,{" "}
-          <strong>fund your science with your science</strong>. We believe that
-          now, more than ever, experimental scientific work is{" "}
+          GraphonMarkets will let firms that engage in scientific research{" "}
+          <strong>fund science with science</strong>. We believe that now, more
+          than ever, experimental scientific work is{" "}
           <strong>inherently commercially valuable</strong>. The AI industry is
           built on the output of human intelligence, and it is mathematically
           bound to being so. With the mass of readily accessible data largely

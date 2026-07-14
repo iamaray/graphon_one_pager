@@ -5,8 +5,9 @@ import Image from "next/image";
 import graphonIcon from "@/app/graphon_icon_2.svg";
 import ComingSoonButton from "./ComingSoonButton";
 import TypedHeroWord from "./TypedHeroWord";
+// import VisStages from "./VisStages";
 
-const exchangeStages = ["Source", "Structure", "Permission", "Compute"];
+// const exchangeStages = ["Source", "Structure", "Permission", "Compute"];
 
 export default function TopCard() {
   const [isIconRotated, setIsIconRotated] = useState(false);
@@ -15,7 +16,7 @@ export default function TopCard() {
   }, []);
 
   return (
-    <section className="relative min-h-[calc(100svh-var(--top-nav-height))] overflow-hidden border-b border-border">
+    <section className="relative min-h-[calc(100svh-var(--top-nav-height))] overflow-hidden">
       <div
         className="technical-grid absolute inset-0 opacity-50"
         aria-hidden="true"
@@ -41,29 +42,15 @@ export default function TopCard() {
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-7 text-foreground/75 sm:text-lg sm:leading-8">
-            The AI industry needs access to frontier data. We&apos;re solving
-            this by building the exchange and infrastructure layer that brings
-            scientific data to scale, starting with the life-sciences.
+            AI needs frontier science, and science needs frontier
+            AI. We&apos;re bridging the two by building the exchange and
+            infrastructure layer that brings scientific data to scale, starting
+            with the life-sciences.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-5">
             <ComingSoonButton />
           </div>
-        </div>
-      </div>
-
-      <div className="relative border-t border-border bg-background/70">
-        <div className="mx-auto grid w-full max-w-[88rem] grid-cols-2 sm:grid-cols-4">
-          {exchangeStages.map((stage) => (
-            <div
-              key={stage}
-              className="flex items-center gap-4 border-border px-5 py-5 sm:border-r sm:px-8 last:border-r-0"
-            >
-              <span className="font-mono text-[0.66rem] uppercase tracking-[0.16em] text-foreground/70">
-                {stage}
-              </span>
-            </div>
-          ))}
         </div>
       </div>
     </section>
