@@ -18,14 +18,6 @@ export default function VisStages({ stages }: Props) {
               {stage}
             </span>
           </span>
-          {index < stages.length - 1 && (
-            <span
-              aria-hidden="true"
-              className="hidden font-mono text-[0.6rem] text-muted/70 sm:inline"
-            >
-              &rarr;
-            </span>
-          )}
         </li>
       ))}
     </ol>
