@@ -190,7 +190,7 @@ export default function Home() {
           aria-hidden="true"
         />
         <div className="relative mx-auto w-full max-w-[88rem]">
-          <div className="mb-10 flex items-center gap-4 border-b border-border pb-5">
+          <div className="mb-10 flex items-center gap-4 pb-5">
             <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">
               Contact
             </p>
