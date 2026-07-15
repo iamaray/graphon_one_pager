@@ -28,9 +28,6 @@ export default function DelinUserTypeHeader({
           <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">
             {details.label}
           </p>
-          <p className="font-mono text-[0.58rem] uppercase tracking-[0.2em] text-muted">
-            {String(stages.length).padStart(2, "0")} stages
-          </p>
         </div>
         <VisStages stages={stages} />
       </div>
