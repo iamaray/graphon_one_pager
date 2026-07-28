@@ -23,10 +23,10 @@ export default function TopCard() {
       />
       <div className="relative mx-auto flex min-h-[calc(100svh-var(--top-nav-height))] w-full max-w-[88rem] items-center px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
         <div className="reveal relative z-10 w-full max-w-5xl">
-          <div className="mb-8 flex max-w-3xl items-center gap-3 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
+          {/* <div className="mb-8 flex max-w-3xl items-center gap-3 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
             The Science Data Exchange
             <span className="h-px flex-1 bg-border" />
-          </div>
+          </div> */}
 
           <h1 className="font-display text-[clamp(3.6rem,7.5vw,7.75rem)] leading-[0.88] tracking-[-0.055em] text-foreground">
             Compute

@@ -151,9 +151,9 @@ export default function Home() {
                 </li>
                 <li>
                   <strong>Choose the right access model.</strong> Different labs
-                  will sell access under different constraints. So, you have the
-                  opportunity to purchase access under terms that fit your use
-                  case.
+                  will sell access under different constraints. You have the
+                  opportunity to purchase access under terms that fit your
+                  workflow.
                 </li>
               </ul>
             }
