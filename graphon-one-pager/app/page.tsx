@@ -41,16 +41,15 @@ export default function Home() {
             body={
               <ul>
                 <li>
-                  <strong>Vet and structure your data.</strong> We&apos;ll help
-                  you store and structure your data. After that, we&apos;ll vet
-                  the quality of your data and get you ready for
-                  commercialization.
+                  <strong>Vet and structure your data.</strong> We will help you
+                  store and structure your data. After that, we vet the quality
+                  of your data and get you ready for commercialization.
                 </li>
                 <li>
-                  <strong>Write detailed data cards.</strong> For each
-                  datastream you hook into GraphonMarkets, write a detailed data
-                  card. Make buyers aware of metadata, compliance info, and
-                  generation methods.
+                  <strong>Create detailed data cards.</strong> For each
+                  datastream you hook into GraphonMarkets, a highly detailed
+                  Data Card is generated. Make buyers aware of metadata,
+                  compliance info, and experimental methods.
                 </li>
               </ul>
             }
